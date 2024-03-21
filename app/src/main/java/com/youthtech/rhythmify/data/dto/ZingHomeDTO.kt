@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName
 data class ZingHomeResponse(
     val err: Long,
     val msg: String,
-    val data: Data,
+    val data: ZingHomeData,
     val timestamp: Long,
 )
 
-data class Data(
+data class ZingHomeData(
     val items: List<Item>,
     val hasMore: Boolean,
     val total: Long,
@@ -68,53 +68,10 @@ data class Promote(
     val mvlink: String?,
 )
 
-data class Artist(
-    val id: String,
-    val name: String,
-    val link: String,
-    val spotlight: Boolean,
-    val alias: String,
-    val thumbnail: String,
-    val thumbnailM: String,
-    @SerializedName("isOA")
-    val isOa: Boolean,
-    @SerializedName("isOABrand")
-    val isOabrand: Boolean,
-    val playlistId: String,
-)
 
-data class Album(
-    val encodeId: String,
-    val title: String,
-    val thumbnail: String,
-    val isoffical: Boolean,
-    val link: String,
-    val isIndie: Boolean,
-    val releaseDate: String,
-    val sortDescription: String,
-    val releasedAt: Long,
-    val genreIds: List<String>,
-    @SerializedName("PR")
-    val pr: Boolean,
-    val artists: List<Artist2>,
-    val artistsNames: String,
-)
 
-data class Artist2(
-    val id: String,
-    val name: String,
-    val link: String,
-    val spotlight: Boolean,
-    val alias: String,
-    val thumbnail: String,
-    val thumbnailM: String,
-    @SerializedName("isOA")
-    val isOa: Boolean,
-    @SerializedName("isOABrand")
-    val isOabrand: Boolean,
-    val playlistId: String,
-    val totalFollow: Long,
-)
+
+
 
 data class PreviewInfo(
     val startTime: Long,

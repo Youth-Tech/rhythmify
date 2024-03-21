@@ -1,8 +1,9 @@
 package com.youthtech.rhythmify.data.apis
 
+import ZingSongInfoResponse
 import com.youthtech.rhythmify.data.dto.ZingHomeResponse
 import com.youthtech.rhythmify.data.music_service.ApiPath
-import com.youthtech.rhythmify.data.music_service.ZingSongStreamResponse
+import com.youthtech.rhythmify.data.dto.ZingSongStreamResponse
 import com.youthtech.rhythmify.enums.MvSort
 import com.youthtech.rhythmify.enums.SearchType
 import retrofit2.Response
@@ -28,7 +29,7 @@ interface ZingService {
     suspend fun getSongInfo(
         @Query("id") id: String,
         @Query("sig") sig: String
-    ): Response<Any>
+    ): Response<ZingSongInfoResponse>
 
     @GET(ApiPath.GET_SONG_LYRIC)
     suspend fun getSongLyric(

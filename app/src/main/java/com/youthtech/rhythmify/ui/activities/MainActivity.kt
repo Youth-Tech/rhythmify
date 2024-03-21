@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.api.setOnClickListener {
             GlobalScope.launch(Dispatchers.IO) {
-                val homeRes = zingService.getSong(
-                    id = "Z7Z6O988",
-                    sig = MusicServiceUtils.hashHasIdSignature(ApiPath.GET_SONG, "Z7Z6O988")
+                val homeRes = zingService.getHomeChart(
+//                    id = "Z7Z6O988",
+                    sig = MusicServiceUtils.hashNoIdSignature(ApiPath.GET_HOME_CHART)
                 )
             }
         }
