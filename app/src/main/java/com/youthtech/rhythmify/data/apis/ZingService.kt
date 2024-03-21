@@ -157,7 +157,7 @@ interface ZingService {
         @Query("sig") sig: String,
     ): Response<Any>
 
-    @GET(ApiPath.GET_RECOMMEND_KEYWORD)
+    @GET(ApiPath.GET_SUGGEST_KEYWORD)
     suspend fun getSuggestKeyword(
         @Query("num") num: String? = "10",
         @Query("query") keyword: String,
