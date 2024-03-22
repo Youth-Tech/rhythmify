@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     kotlin("kapt")
     id("com.android.application")
@@ -9,6 +11,10 @@ android {
     namespace = "com.youthtech.rhythmify"
     compileSdk = 34
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId = "com.youthtech.rhythmify"
         minSdk = 27
@@ -17,6 +23,20 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+
+        val properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+        buildConfigField(
+            "String",
+            "ZING_SECRET_KEY",
+            "\"${properties["ZING_SECRET_KEY"]}\""
+        )
+        buildConfigField(
+            "String",
+            "ZING_API_KEY",
+            "\"${properties["ZING_API_KEY"]}\""
+        )
     }
 
     buildTypes {
@@ -97,7 +117,7 @@ dependencies {
     val retrofitVersion = "2.10.0"
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
-    implementation ("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-scalars:$retrofitVersion")
 
     //datastore
