@@ -100,7 +100,6 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-scalars:$retrofitVersion")
 
-
     //datastore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 

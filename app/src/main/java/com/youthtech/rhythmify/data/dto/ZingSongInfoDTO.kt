@@ -1,9 +1,6 @@
+package com.youthtech.rhythmify.data.dto
 
 import com.google.gson.annotations.SerializedName
-import com.youthtech.rhythmify.data.dto.Album
-import com.youthtech.rhythmify.data.dto.Artist
-import com.youthtech.rhythmify.data.dto.Composer
-import com.youthtech.rhythmify.data.dto.Genre
 
 data class ZingSongInfoResponse(
     val err: Long,

@@ -1,9 +1,15 @@
 package com.youthtech.rhythmify.data.apis
 
-import ZingSongInfoResponse
+import com.youthtech.rhythmify.data.dto.ZingGetRecommendKeywordResponse
 import com.youthtech.rhythmify.data.dto.ZingHomeResponse
+import com.youthtech.rhythmify.data.dto.ZingPlaylistResponse
+import com.youthtech.rhythmify.data.dto.ZingSearchAllResponse
+import com.youthtech.rhythmify.data.dto.ZingSearchByTypeResponse
+import com.youthtech.rhythmify.data.dto.ZingSongInfoResponse
 import com.youthtech.rhythmify.data.music_service.ApiPath
 import com.youthtech.rhythmify.data.dto.ZingSongStreamResponse
+import com.youthtech.rhythmify.data.dto.ZingSuggestKeywordResponse
+import com.youthtech.rhythmify.data.dto.ZingSuggestPlaylistResponse
 import com.youthtech.rhythmify.enums.MvSort
 import com.youthtech.rhythmify.enums.SearchType
 import retrofit2.Response
@@ -111,21 +117,21 @@ interface ZingService {
 
     @GET(ApiPath.GET_MV)
     suspend fun getMv(
-        @Query("id") id: String,
+        @Query("id") mvId: String,
         @Query("sig") sig: String,
     ): Response<Any>
 
     @GET(ApiPath.GET_PLAYLIST)
     suspend fun getPlaylist(
-        @Query("id") id: String,
+        @Query("id") playlistId: String,
         @Query("sig") sig: String,
-    ): Response<Any>
+    ): Response<ZingPlaylistResponse>
 
     @GET(ApiPath.GET_SUGGEST_PLAYLIST)
     suspend fun getSuggestPlaylist(
-        @Query("id") id: String,
+        @Query("id") playlistId: String,
         @Query("sig") sig: String,
-    ): Response<Any>
+    ): Response<ZingSuggestPlaylistResponse>
 
     @GET(ApiPath.GET_EVENT)
     suspend fun getEvent(
@@ -134,7 +140,7 @@ interface ZingService {
 
     @GET(ApiPath.GET_EVENT_INFO)
     suspend fun getEventInfo(
-        @Query("id") id: String,
+        @Query("id") eventId: String,
         @Query("sig") sig: String,
     ): Response<Any>
 
@@ -142,7 +148,7 @@ interface ZingService {
     suspend fun searchAll(
         @Query("q") keyword: String,
         @Query("sig") sig: String,
-    ): Response<Any>
+    ): Response<ZingSearchAllResponse>
 
     @GET(ApiPath.SEARCH_BY_TYPE)
     suspend fun searchByType(
@@ -151,12 +157,12 @@ interface ZingService {
         @Query("page") page: Number? = 1,
         @Query("count") count: Number? = 18,
         @Query("sig") sig: String,
-    ): Response<Any>
+    ): Response<ZingSearchByTypeResponse>
 
     @GET(ApiPath.GET_RECOMMEND_KEYWORD)
     suspend fun getRecommendKeyword(
         @Query("sig") sig: String,
-    ): Response<Any>
+    ): Response<ZingGetRecommendKeywordResponse>
 
     @GET(ApiPath.GET_SUGGEST_KEYWORD)
     suspend fun getSuggestKeyword(
@@ -164,5 +170,5 @@ interface ZingService {
         @Query("query") keyword: String,
         @Query("language") language: String? = "vi",
         @Query("sig") sig: String,
-    ): Response<Any>
+    ): Response<ZingSuggestKeywordResponse>
 }

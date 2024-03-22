@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.youthtech.rhythmify.data.apis.ZingService
 import com.youthtech.rhythmify.data.music_service.ApiPath
-import com.youthtech.rhythmify.data.music_service.MusicServiceUtils
+import com.youthtech.rhythmify.data.music_service.hashNoIdSignature
 import com.youthtech.rhythmify.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -29,9 +29,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.api.setOnClickListener {
             GlobalScope.launch(Dispatchers.IO) {
-                val homeRes = zingService.getHomeChart(
-//                    id = "Z7Z6O988",
-                    sig = MusicServiceUtils.hashNoIdSignature(ApiPath.GET_HOME_CHART)
+                zingService.getHomeChart(
+                    sig = hashNoIdSignature(
+                        ApiPath.GET_HOME_CHART
+                    )
                 )
             }
         }

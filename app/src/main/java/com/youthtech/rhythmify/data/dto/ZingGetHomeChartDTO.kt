@@ -1,7 +1,6 @@
-import com.google.gson.annotations.SerializedName;
-import com.youthtech.rhythmify.data.dto.Album
-import com.youthtech.rhythmify.data.dto.Artist
+package com.youthtech.rhythmify.data.dto
 
+import com.google.gson.annotations.SerializedName;
 
 data class ZingGetHomeChartResponse(
     val err: Long,
@@ -26,46 +25,6 @@ data class Rtchart(
     val sectionId: String,
 )
 
-data class Promote(
-    val encodeId: String,
-    val title: String,
-    val alias: String,
-    val isOffical: Boolean,
-    val username: String,
-    val artistsNames: String,
-    val artists: List<Artist>,
-    val isWorldWide: Boolean,
-    val thumbnailM: String,
-    val link: String,
-    val thumbnail: String,
-    val duration: Long,
-    val zingChoice: Boolean,
-    val isPrivate: Boolean,
-    val preRelease: Boolean,
-    val releaseDate: Long,
-    val genreIds: List<String>,
-    val album: Album,
-    val distributor: String,
-    val indicators: List<String>,
-    val isIndie: Boolean,
-    val streamingStatus: Long,
-    val allowAudioAds: Boolean,
-    val hasLyric: Boolean,
-    val previewInfo: PreviewInfo?,
-    val downloadPrivileges: List<Long>?,
-    val streamPrivileges: List<Long>?,
-    val mvlink: String?,
-)
-
-
-
-
-
-data class PreviewInfo(
-    val startTime: Long,
-    val endTime: Long,
-)
-
 data class Item(
     val encodeId: String,
     val title: String,
@@ -75,7 +34,7 @@ data class Item(
     val artistsNames: String,
     val artists: List<Artist>,
     val isWorldWide: Boolean,
-    val previewInfo: PreviewInfo2?,
+    val previewInfo: PreviewInfo?,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
@@ -98,40 +57,6 @@ data class Item(
     val artist: Artist?,
     val downloadPrivileges: List<Long>?,
     val mvlink: String?,
-)
-
-
-
-data class PreviewInfo2(
-    val startTime: Long,
-    val endTime: Long,
-)
-
-
-
-
-
-
-
-
-
-
-data class Chart(
-    val times: List<Time>,
-    val minScore: Long,
-    val maxScore: Double,
-    val items: Map<String, List<Items>>,
-    val totalScore: Long,
-)
-
-data class Time(
-    val hour: String,
-)
-
-data class Items(
-    val time: Long,
-    val hour: String,
-    val counter: Long,
 )
 
 data class NewRelease(
@@ -159,16 +84,9 @@ data class NewRelease(
     val streamingStatus: Long,
     val allowAudioAds: Boolean,
     val hasLyric: Boolean,
-    val previewInfo: PreviewInfo3?,
+    val previewInfo: PreviewInfo?,
     val mvlink: String?,
     val downloadPrivileges: List<Long>?,
-)
-
-
-
-data class PreviewInfo3(
-    val startTime: Long,
-    val endTime: Long,
 )
 
 data class WeekChart(
@@ -211,7 +129,7 @@ data class Item2(
     val artistsNames: String,
     val artists: List<Artist>,
     val isWorldWide: Boolean,
-    val previewInfo: PreviewInfo4,
+    val previewInfo: PreviewInfo,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
@@ -233,15 +151,6 @@ data class Item2(
     val downloadPrivileges: List<Long>?,
     val mvlink: String?,
 )
-
-
-
-data class PreviewInfo4(
-    val startTime: Long,
-    val endTime: Long,
-)
-
-
 
 data class Us(
     val banner: String,
@@ -277,7 +186,7 @@ data class Item3(
     val artistsNames: String,
     val artists: List<Artist>,
     val isWorldWide: Boolean,
-    val previewInfo: PreviewInfo5?,
+    val previewInfo: PreviewInfo?,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
@@ -301,15 +210,6 @@ data class Item3(
     val radioId: Long?,
     val mvlink: String?,
 )
-
-
-data class PreviewInfo5(
-    val startTime: Long,
-    val endTime: Long,
-)
-
-
-
 
 data class Korea(
     val banner: String,
@@ -345,7 +245,7 @@ data class Item4(
     val artistsNames: String,
     val artists: List<Artist>,
     val isWorldWide: Boolean,
-    val previewInfo: PreviewInfo6,
+    val previewInfo: PreviewInfo,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
@@ -367,12 +267,6 @@ data class Item4(
     val hasLyric: Boolean?,
     val mvlink: String?,
     val streamPrivileges: List<Long>?,
-)
-
-
-data class PreviewInfo6(
-    val startTime: Long,
-    val endTime: Long,
 )
 
 
