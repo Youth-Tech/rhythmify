@@ -1,6 +1,5 @@
+package com.youthtech.rhythmify.data.dto
 import com.google.gson.annotations.SerializedName;
-import com.youthtech.rhythmify.data.dto.Album
-import com.youthtech.rhythmify.data.dto.Artist
 
 
 data class ZingGetHomeChartResponse(
@@ -18,15 +17,15 @@ data class ZingGetHomeChartData(
 )
 
 data class Rtchart(
-    val promotes: List<Promote>,
-    val items: List<Item>,
-    val chart: Chart,
+    val promotes: List<HomeChartPromote>,
+    val items: List<HomeChartItem>,
+    val chart: HomeChart,
     val chartType: String,
     val sectionType: String,
     val sectionId: String,
 )
 
-data class Promote(
+data class HomeChartPromote(
     val encodeId: String,
     val title: String,
     val alias: String,
@@ -60,13 +59,7 @@ data class Promote(
 
 
 
-
-data class PreviewInfo(
-    val startTime: Long,
-    val endTime: Long,
-)
-
-data class Item(
+data class HomeChartItem(
     val encodeId: String,
     val title: String,
     val alias: String,
@@ -75,7 +68,7 @@ data class Item(
     val artistsNames: String,
     val artists: List<Artist>,
     val isWorldWide: Boolean,
-    val previewInfo: PreviewInfo2?,
+    val previewInfo: PreviewInfo?,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
@@ -101,34 +94,16 @@ data class Item(
 )
 
 
-
-data class PreviewInfo2(
-    val startTime: Long,
-    val endTime: Long,
-)
-
-
-
-
-
-
-
-
-
-
-data class Chart(
+data class HomeChart(
     val times: List<Time>,
     val minScore: Long,
     val maxScore: Double,
-    val items: Map<String, List<Items>>,
+    val items: Map<String, List<HomeChartItems>>,
     val totalScore: Long,
 )
 
-data class Time(
-    val hour: String,
-)
 
-data class Items(
+data class HomeChartItems(
     val time: Long,
     val hour: String,
     val counter: Long,
@@ -159,17 +134,11 @@ data class NewRelease(
     val streamingStatus: Long,
     val allowAudioAds: Boolean,
     val hasLyric: Boolean,
-    val previewInfo: PreviewInfo3?,
+    val previewInfo: PreviewInfo?,
     val mvlink: String?,
     val downloadPrivileges: List<Long>?,
 )
 
-
-
-data class PreviewInfo3(
-    val startTime: Long,
-    val endTime: Long,
-)
 
 data class WeekChart(
     val vn: Vn,
@@ -195,12 +164,7 @@ data class Vn(
     val sectionId: String,
 )
 
-data class Group(
-    val id: Long,
-    val name: String,
-    val type: String,
-    val link: String,
-)
+
 
 data class Item2(
     val encodeId: String,
@@ -211,7 +175,7 @@ data class Item2(
     val artistsNames: String,
     val artists: List<Artist>,
     val isWorldWide: Boolean,
-    val previewInfo: PreviewInfo4,
+    val previewInfo: PreviewInfo,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
@@ -235,14 +199,6 @@ data class Item2(
 )
 
 
-
-data class PreviewInfo4(
-    val startTime: Long,
-    val endTime: Long,
-)
-
-
-
 data class Us(
     val banner: String,
     val playlistId: String,
@@ -250,7 +206,7 @@ data class Us(
     val cover: String,
     val country: String,
     val type: String,
-    val group: List<Group2>,
+    val group: List<Group>,
     val link: String,
     val week: Long,
     val year: Long,
@@ -261,12 +217,6 @@ data class Us(
     val sectionId: String,
 )
 
-data class Group2(
-    val id: Long,
-    val name: String,
-    val type: String,
-    val link: String,
-)
 
 data class Item3(
     val encodeId: String,
@@ -277,7 +227,7 @@ data class Item3(
     val artistsNames: String,
     val artists: List<Artist>,
     val isWorldWide: Boolean,
-    val previewInfo: PreviewInfo5?,
+    val previewInfo: PreviewInfo?,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
@@ -303,14 +253,6 @@ data class Item3(
 )
 
 
-data class PreviewInfo5(
-    val startTime: Long,
-    val endTime: Long,
-)
-
-
-
-
 data class Korea(
     val banner: String,
     val playlistId: String,
@@ -318,7 +260,7 @@ data class Korea(
     val cover: String,
     val country: String,
     val type: String,
-    val group: List<Group3>,
+    val group: List<Group>,
     val link: String,
     val week: Long,
     val year: Long,
@@ -329,12 +271,6 @@ data class Korea(
     val sectionId: String,
 )
 
-data class Group3(
-    val id: Long,
-    val name: String,
-    val type: String,
-    val link: String,
-)
 
 data class Item4(
     val encodeId: String,
@@ -345,7 +281,7 @@ data class Item4(
     val artistsNames: String,
     val artists: List<Artist>,
     val isWorldWide: Boolean,
-    val previewInfo: PreviewInfo6,
+    val previewInfo: PreviewInfo,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
@@ -370,10 +306,7 @@ data class Item4(
 )
 
 
-data class PreviewInfo6(
-    val startTime: Long,
-    val endTime: Long,
-)
+
 
 
 

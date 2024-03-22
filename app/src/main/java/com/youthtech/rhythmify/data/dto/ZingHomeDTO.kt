@@ -1,7 +1,5 @@
 package com.youthtech.rhythmify.data.dto
 
-import com.google.gson.annotations.SerializedName
-
 data class ZingHomeResponse(
     val err: Long,
     val msg: String,
@@ -69,15 +67,6 @@ data class Promote(
 )
 
 
-
-
-
-
-data class PreviewInfo(
-    val startTime: Long,
-    val endTime: Long,
-)
-
 data class Chart(
     val times: List<Time>,
     val minScore: Long,
@@ -86,9 +75,7 @@ data class Chart(
     val totalScore: Long,
 )
 
-data class Time(
-    val hour: String,
-)
+
 
 data class Items(
     val time: Long,

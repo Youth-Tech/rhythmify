@@ -1,13 +1,32 @@
 package com.youthtech.rhythmify.data.dto
-import com.google.gson.annotations.SerializedName
-data class ZingSongInfoResponse(
+
+
+data class ZingGetWeekChartResponse(
     val err: Long,
     val msg: String,
-    val data: ZingSongData,
+    val data: ZingGetWeekChartData,
     val timestamp: Long,
 )
 
-data class ZingSongData(
+data class ZingGetWeekChartData(
+    val banner: String,
+    val playlistId: String,
+    val chartId: Long,
+    val cover: String,
+    val country: String,
+    val type: String,
+    val group: List<Group>,
+    val link: String,
+    val week: Long,
+    val year: Long,
+    val latestWeek: Long,
+    val startDate: String,
+    val endDate: String,
+    val items: List<WeekChartItem>,
+    val sectionId: String,
+)
+
+data class WeekChartItem(
     val encodeId: String,
     val title: String,
     val alias: String,
@@ -16,6 +35,7 @@ data class ZingSongData(
     val artistsNames: String,
     val artists: List<Artist>,
     val isWorldWide: Boolean,
+    val previewInfo: PreviewInfo,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
@@ -25,26 +45,18 @@ data class ZingSongData(
     val preRelease: Boolean,
     val releaseDate: Long,
     val genreIds: List<String>,
+    val album: Album,
     val distributor: String,
     val indicators: List<Any?>,
     val isIndie: Boolean,
-    val mvlink: String,
     val streamingStatus: Long,
     val allowAudioAds: Boolean,
     val hasLyric: Boolean,
-    val userid: Long,
-    val genres: List<Genre>,
-    val composers: List<Composer>,
-    val album: Album,
-    @SerializedName("isRBT")
-    val isRbt: Boolean,
-    val like: Long,
-    val listen: Long,
-    val liked: Boolean,
-    val comment: Long,
+    val rakingStatus: Long,
+    val score: Long,
+    val downloadPrivileges: List<Long>?,
+    val mvlink: String?,
 )
-
-
 
 
 

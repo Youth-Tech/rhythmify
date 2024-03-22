@@ -1,3 +1,4 @@
+package com.youthtech.rhythmify.data.dto
 import com.google.gson.annotations.SerializedName
 
 data class ZingSongLyricsResponse(
