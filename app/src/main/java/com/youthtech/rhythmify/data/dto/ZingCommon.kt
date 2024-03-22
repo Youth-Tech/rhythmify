@@ -2,7 +2,7 @@ package com.youthtech.rhythmify.data.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class Artist (
+data class Artist(
     val id: String,
     val name: String,
     val link: String,
@@ -15,6 +15,7 @@ data class Artist (
     val playlistId: String?,
     val totalFollow: Long?,
 )
+
 data class Album(
     val encodeId: String,
     val title: String,
@@ -57,59 +58,83 @@ data class PreviewInfo(
     val endTime: Long,
 )
 
-data class Group(
-    val id: Long,
-    val name: String,
-    val type: String,
-    val link: String,
-)
-data class Time(
-    val hour: String,
-)
-
-data class Program(
-    val id: Long?,
+data class Song(
     val encodeId: String,
     val title: String,
-    val thumbnail: String,
-    val thumbnailH: String,
-    val description: String,
-    val startTime: Long,
-    val endTime: Long,
-    val hasSongRequest: Boolean,
-    val genreIds: List<String>?,
-)
-
-data class Host(
-    val name: String,
-    val encodeId: String,
-    val thumbnail: String,
-    val link: String,
-)
-
-data class Playlist(
-    val encodeId: String,
-    val title: String,
-    val thumbnail: String,
-    val isoffical: Boolean,
-    val link: String,
-    val isIndie: Boolean,
-    val releaseDate: String,
-    val sortDescription: String,
-    val releasedAt: Long,
-    val genreIds: List<String>,
-    @SerializedName("PR")
-    val pr: Boolean,
-    val artists: List<Artist>,
+    val alias: String,
+    val isOffical: Boolean,
+    val username: String,
     val artistsNames: String,
-    val playItemMode: Long,
-    val subType: Long,
-    val uid: Long,
+    val artists: List<Artist>,
+    val isWorldWide: Boolean,
+    val previewInfo: PreviewInfo?,
     val thumbnailM: String,
-    val isShuffle: Boolean,
+    val link: String,
+    val thumbnail: String,
+    val duration: Long,
+    val zingChoice: Boolean,
     val isPrivate: Boolean,
-    val userName: String,
-    val isAlbum: Boolean,
-    val textType: String,
-    val isSingle: Boolean,
+    val preRelease: Boolean,
+    val releaseDate: Long,
+    val genreIds: List<String>,
+    val album: Album?,
+    val distributor: String,
+    val indicators: List<String>,
+    val isIndie: Boolean,
+    val streamingStatus: Long,
+    val downloadPrivileges: List<Long>?,
+    val allowAudioAds: Boolean,
+    val hasLyric: Boolean?,
+    val mvlink: String?,
+    val streamPrivileges: List<Long>?,
+    val radioId: Long?,
+)
+
+data class Promote(
+    val encodeId: String,
+    val title: String,
+    val alias: String,
+    val isOffical: Boolean,
+    val username: String,
+    val artistsNames: String,
+    val artists: List<Artist>,
+    val isWorldWide: Boolean,
+    val thumbnailM: String,
+    val link: String,
+    val thumbnail: String,
+    val duration: Long,
+    val zingChoice: Boolean,
+    val isPrivate: Boolean,
+    val preRelease: Boolean,
+    val releaseDate: Long,
+    val genreIds: List<String>,
+    val album: Album,
+    val distributor: String,
+    val indicators: List<String>,
+    val isIndie: Boolean,
+    val streamingStatus: Long,
+    val allowAudioAds: Boolean,
+    val hasLyric: Boolean,
+    val previewInfo: PreviewInfo?,
+    val downloadPrivileges: List<Long>?,
+    val streamPrivileges: List<Long>?,
+    val mvlink: String?,
+)
+
+data class Chart(
+    val times: List<ChartTime>,
+    val minScore: Long,
+    val maxScore: Double,
+    val items: Map<String, List<ChartItem>>,
+    val totalScore: Long,
+)
+
+data class ChartItem(
+    val time: Long,
+    val hour: String,
+    val counter: Long,
+)
+
+data class ChartTime(
+    val hour: String,
 )

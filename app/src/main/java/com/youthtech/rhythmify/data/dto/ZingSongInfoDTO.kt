@@ -1,5 +1,6 @@
 package com.youthtech.rhythmify.data.dto
 import com.google.gson.annotations.SerializedName
+
 data class ZingSongInfoResponse(
     val err: Long,
     val msg: String,

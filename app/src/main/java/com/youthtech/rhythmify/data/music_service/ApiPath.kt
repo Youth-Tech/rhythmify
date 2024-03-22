@@ -1,8 +1,5 @@
 package com.youthtech.rhythmify.data.music_service
 
-import com.youthtech.rhythmify.utils.Commons
-import com.youthtech.rhythmify.utils.Configs
-
 object ApiPath {
     //zing path
     const val GET_HOME = "/api/v2/page/get/home"
@@ -29,8 +26,4 @@ object ApiPath {
     const val SEARCH_BY_TYPE = "/api/v2/search"
     const val GET_RECOMMEND_KEYWORD = "/api/v2/app/get/recommend-keyword"
     const val GET_SUGGEST_KEYWORD = "/v1/web/suggestion-keywords"
-
-    fun pathBuilder(path: String): String {
-        return "${path}&ctime=${Commons.currentTime}&version=${Configs.ZING_VERSION}&apikey=${Configs.ZING_API_KEY}"
-    }
 }

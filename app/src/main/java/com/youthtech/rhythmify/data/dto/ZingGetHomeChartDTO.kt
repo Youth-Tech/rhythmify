@@ -34,29 +34,11 @@ data class HomeChartPromote(
     val artistsNames: String,
     val artists: List<Artist>,
     val isWorldWide: Boolean,
-    val thumbnailM: String,
-    val link: String,
-    val thumbnail: String,
-    val duration: Long,
-    val zingChoice: Boolean,
-    val isPrivate: Boolean,
-    val preRelease: Boolean,
-    val releaseDate: Long,
-    val genreIds: List<String>,
-    val album: Album,
-    val distributor: String,
-    val indicators: List<String>,
-    val isIndie: Boolean,
-    val streamingStatus: Long,
-    val allowAudioAds: Boolean,
-    val hasLyric: Boolean,
     val previewInfo: PreviewInfo?,
     val downloadPrivileges: List<Long>?,
     val streamPrivileges: List<Long>?,
     val mvlink: String?,
 )
-
-
 
 
 data class HomeChartItem(
@@ -93,21 +75,21 @@ data class HomeChartItem(
     val mvlink: String?,
 )
 
-
-data class HomeChart(
-    val times: List<Time>,
-    val minScore: Long,
-    val maxScore: Double,
-    val items: Map<String, List<HomeChartItems>>,
-    val totalScore: Long,
-)
-
-
-data class HomeChartItems(
-    val time: Long,
-    val hour: String,
-    val counter: Long,
-)
+//
+//data class HomeChart(
+//    val times: List<Time>,
+//    val minScore: Long,
+//    val maxScore: Double,
+//    val items: Map<String, List<HomeChartItems>>,
+//    val totalScore: Long,
+//)
+//
+//
+//data class HomeChartItems(
+//    val time: Long,
+//    val hour: String,
+//    val counter: Long,
+//)
 
 data class NewRelease(
     val encodeId: String,
@@ -139,7 +121,6 @@ data class NewRelease(
     val downloadPrivileges: List<Long>?,
 )
 
-
 data class WeekChart(
     val vn: Vn,
     val us: Us,
@@ -163,8 +144,6 @@ data class Vn(
     val items: List<Item2>,
     val sectionId: String,
 )
-
-
 
 data class Item2(
     val encodeId: String,
@@ -197,7 +176,6 @@ data class Item2(
     val downloadPrivileges: List<Long>?,
     val mvlink: String?,
 )
-
 
 data class Us(
     val banner: String,
@@ -252,7 +230,6 @@ data class Item3(
     val mvlink: String?,
 )
 
-
 data class Korea(
     val banner: String,
     val playlistId: String,
@@ -304,9 +281,3 @@ data class Item4(
     val mvlink: String?,
     val streamPrivileges: List<Long>?,
 )
-
-
-
-
-
-
