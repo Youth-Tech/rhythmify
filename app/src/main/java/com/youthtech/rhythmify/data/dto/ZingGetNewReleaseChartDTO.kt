@@ -1,14 +1,24 @@
 package com.youthtech.rhythmify.data.dto
-import com.google.gson.annotations.SerializedName
 
-data class ZingSongInfoResponse(
+data class ZingGetNewReleaseChartResponse(
     val err: Long,
     val msg: String,
-    val data: ZingSongInfoData,
+    val data: ZingGetNewReleaseChartData,
     val timestamp: Long,
 )
 
-data class ZingSongInfoData(
+data class ZingGetNewReleaseChartData(
+    val banner: String,
+    val type: String,
+    val link: String,
+    val title: String,
+    val sectionType: String,
+    val sectionId: String,
+    val viewType: String,
+    val items: List<NewReleaseChartItem>,
+)
+
+data class NewReleaseChartItem(
     val encodeId: String,
     val title: String,
     val alias: String,
@@ -26,25 +36,19 @@ data class ZingSongInfoData(
     val preRelease: Boolean,
     val releaseDate: Long,
     val genreIds: List<String>,
+    val album: Album,
     val distributor: String,
-    val indicators: List<Any?>,
+    val indicators: List<String>,
     val isIndie: Boolean,
-    val mvlink: String,
     val streamingStatus: Long,
     val allowAudioAds: Boolean,
-    val hasLyric: Boolean,
-    val userid: Long,
-    val genres: List<Genre>,
-    val composers: List<Composer>,
-    val album: Album,
-    @SerializedName("isRBT")
-    val isRbt: Boolean,
-    val like: Long,
-    val listen: Long,
-    val liked: Boolean,
-    val comment: Long,
+    val hasLyric: Boolean?,
+    val rakingStatus: Long,
+    val releasedAt: Long,
+    val previewInfo: PreviewInfo?,
+    val mvlink: String?,
+    val downloadPrivileges: List<Long>?,
 )
-
 
 
 

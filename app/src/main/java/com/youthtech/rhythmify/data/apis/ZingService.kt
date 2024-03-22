@@ -1,15 +1,25 @@
 package com.youthtech.rhythmify.data.apis
 
+import ZingGetRadioResponse
+import com.youthtech.rhythmify.data.dto.ZingGetArtistResponse
+import com.youthtech.rhythmify.data.dto.ZingGetHomeChartResponse
+import com.youthtech.rhythmify.data.dto.ZingGetHubDetailResponse
+import com.youthtech.rhythmify.data.dto.ZingGetHubHomeResponse
+import com.youthtech.rhythmify.data.dto.ZingGetNewReleaseChartResponse
+//import com.youthtech.rhythmify.data.dto.ZingGetRadioResponse
 import com.youthtech.rhythmify.data.dto.ZingGetRecommendKeywordResponse
+import com.youthtech.rhythmify.data.dto.ZingGetTop100Response
+import com.youthtech.rhythmify.data.dto.ZingGetWeekChartResponse
 import com.youthtech.rhythmify.data.dto.ZingHomeResponse
 import com.youthtech.rhythmify.data.dto.ZingPlaylistResponse
 import com.youthtech.rhythmify.data.dto.ZingSearchAllResponse
 import com.youthtech.rhythmify.data.dto.ZingSearchByTypeResponse
 import com.youthtech.rhythmify.data.dto.ZingSongInfoResponse
-import com.youthtech.rhythmify.data.music_service.ApiPath
+import com.youthtech.rhythmify.data.dto.ZingSongLyricsResponse
 import com.youthtech.rhythmify.data.dto.ZingSongStreamResponse
 import com.youthtech.rhythmify.data.dto.ZingSuggestKeywordResponse
 import com.youthtech.rhythmify.data.dto.ZingSuggestPlaylistResponse
+import com.youthtech.rhythmify.data.music_service.ApiPath
 import com.youthtech.rhythmify.enums.MvSort
 import com.youthtech.rhythmify.enums.SearchType
 import retrofit2.Response
@@ -41,17 +51,17 @@ interface ZingService {
     suspend fun getSongLyric(
         @Query("id") id: String,
         @Query("sig") sig: String
-    ): Response<Any>
+    ): Response<ZingSongLyricsResponse>
 
     @GET(ApiPath.GET_HOME_CHART)
     suspend fun getHomeChart(
         @Query("sig") sig: String
-    ): Response<Any>
+    ): Response<ZingGetHomeChartResponse>
 
     @GET(ApiPath.GET_NEW_RELEASE_CHART)
     suspend fun getNewReleaseChart(
         @Query("sig") sig: String
-    ): Response<Any>
+    ): Response<ZingGetNewReleaseChartResponse>
 
     @GET(ApiPath.GET_WEEK_CHART)
     suspend fun getWeekChart(
@@ -59,14 +69,14 @@ interface ZingService {
         @Query("week") week: Number,
         @Query("year") year: Number,
         @Query("sig") sig: String
-    ): Response<Any>
+    ): Response<ZingGetWeekChartResponse>
 
     @GET(ApiPath.GET_RADIO)
     suspend fun getRadio(
         @Query("page") page: Number? = 1,
         @Query("count") count: Number? = 10,
         @Query("sig") sig: String,
-    ): Response<Any>
+    ): Response<ZingGetRadioResponse>
 
     @GET(ApiPath.GET_LIST_BY_GENDER)
     suspend fun getListByGenre(
@@ -80,23 +90,23 @@ interface ZingService {
     suspend fun getArtist(
         @Query("alias") name: String,
         @Query("sig") sig: String,
-    ): Response<Any>
+    ): Response<ZingGetArtistResponse>
 
     @GET(ApiPath.GET_HUB_HOME)
     suspend fun getHubHome(
         @Query("sig") sig: String,
-    ): Response<Any>
+    ): Response<ZingGetHubHomeResponse>
 
     @GET(ApiPath.GET_HUB_DETAIL)
     suspend fun getHubHomeDetail(
         @Query("id") id: String,
         @Query("sig") sig: String,
-    ): Response<Any>
+    ): Response<ZingGetHubDetailResponse>
 
     @GET(ApiPath.GET_TOP_100)
     suspend fun getTop100(
         @Query("sig") sig: String,
-    ): Response<Any>
+    ): Response<ZingGetTop100Response>
 
     @GET(ApiPath.GET_LIST_MV)
     suspend fun getListMv(

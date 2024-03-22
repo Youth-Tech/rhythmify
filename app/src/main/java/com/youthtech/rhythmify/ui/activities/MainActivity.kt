@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.youthtech.rhythmify.data.apis.ZingService
 import com.youthtech.rhythmify.data.music_service.ApiPath
+import com.youthtech.rhythmify.data.music_service.hashHasIdSignature
+import com.youthtech.rhythmify.data.music_service.hashHomeRadioSignature
 import com.youthtech.rhythmify.data.music_service.hashNoIdSignature
 import com.youthtech.rhythmify.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,9 +31,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.api.setOnClickListener {
             GlobalScope.launch(Dispatchers.IO) {
-                zingService.getHomeChart(
-                    sig = hashNoIdSignature(
-                        ApiPath.GET_HOME_CHART
+                zingService.getRadio(
+                    sig = hashHomeRadioSignature(
+                        ApiPath.GET_RADIO
                     )
                 )
             }
