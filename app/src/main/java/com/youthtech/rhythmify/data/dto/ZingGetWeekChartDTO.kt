@@ -15,7 +15,7 @@ data class ZingGetWeekChartData(
     val cover: String,
     val country: String,
     val type: String,
-    val group: List<Group>,
+    val group: List<WeekChartGroup>,
     val link: String,
     val week: Long,
     val year: Long,

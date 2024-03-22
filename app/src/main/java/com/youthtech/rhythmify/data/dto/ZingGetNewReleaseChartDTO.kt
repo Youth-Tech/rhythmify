@@ -1,7 +1,4 @@
 package com.youthtech.rhythmify.data.dto
-import com.youthtech.rhythmify.data.dto.Album
-import com.youthtech.rhythmify.data.dto.Artist
-import com.youthtech.rhythmify.data.dto.PreviewInfo
 
 data class ZingGetNewReleaseChartResponse(
     val err: Long,

@@ -5,7 +5,7 @@ import com.youthtech.rhythmify.data.dto.ZingGetHomeChartResponse
 import com.youthtech.rhythmify.data.dto.ZingGetHubDetailResponse
 import com.youthtech.rhythmify.data.dto.ZingGetHubHomeResponse
 import com.youthtech.rhythmify.data.dto.ZingGetNewReleaseChartResponse
-import com.youthtech.rhythmify.data.dto.ZingGetRadioResponse
+//import com.youthtech.rhythmify.data.dto.ZingGetRadioResponse
 import com.youthtech.rhythmify.data.dto.ZingGetRecommendKeywordResponse
 import com.youthtech.rhythmify.data.dto.ZingGetTop100Response
 import com.youthtech.rhythmify.data.dto.ZingGetWeekChartResponse
@@ -75,7 +75,8 @@ interface ZingService {
         @Query("page") page: Number? = 1,
         @Query("count") count: Number? = 10,
         @Query("sig") sig: String,
-    ): Response<ZingGetRadioResponse>
+//    ): Response<ZingGetRadioResponse>
+    ): Response<Any>
 
     @GET(ApiPath.GET_LIST_BY_GENDER)
     suspend fun getListByGenre(

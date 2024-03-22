@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
 data class ZingSongInfoResponse(
     val err: Long,
     val msg: String,
-    val data: ZingSongData,
+    val data: ZingSongInfoData,
     val timestamp: Long,
 )
 
-data class ZingSongData(
+data class ZingSongInfoData(
     val encodeId: String,
     val title: String,
     val alias: String,

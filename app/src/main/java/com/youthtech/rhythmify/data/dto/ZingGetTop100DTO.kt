@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName
 data class ZingGetTop100Response(
     val err: Long,
     val msg: String,
-    val data: List<Daum>,
+    val data: List<ZingGetTop100Data>,
     val timestamp: Long,
 )
 
-data class Daum(
+data class ZingGetTop100Data(
     val sectionType: String,
     val viewType: String,
     val title: String,

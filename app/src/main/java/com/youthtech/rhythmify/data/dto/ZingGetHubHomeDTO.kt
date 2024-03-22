@@ -1,7 +1,5 @@
 package com.youthtech.rhythmify.data.dto
 
-import com.google.gson.annotations.SerializedName
-
 data class ZingGetHubHomeResponse(
     val err: Long,
     val msg: String,

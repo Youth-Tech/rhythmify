@@ -1,4 +1,5 @@
 package com.youthtech.rhythmify.data.dto
+
 import com.google.gson.annotations.SerializedName
 
 data class ZingGetArtistResponse(
@@ -41,7 +42,7 @@ data class Section(
     val title: String,
     val link: String,
     val sectionId: String,
-    val items: List<Item>,
+    val items: List<ZingGetArtistItem>,
     val options: ZingGetArtistOptions?,
     val itemType: String?,
 )
