@@ -1,31 +1,24 @@
 package com.youthtech.rhythmify.data.di
 
+import android.content.Context
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
 import com.youthtech.rhythmify.data.apis.CookieService
 import com.youthtech.rhythmify.data.apis.ZingService
 import com.youthtech.rhythmify.data.music_service.MusicServiceInterceptor
-import com.youthtech.rhythmify.utils.Configs
+import com.youthtech.rhythmify.extensions.dataStore
+import com.youthtech.rhythmify.utils.BASE_URL
+import com.youthtech.rhythmify.utils.ZING_BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
-import javax.inject.Qualifier
 import javax.inject.Singleton
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class ZingRetrofit
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class DefaultRetrofit
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class CookiesRetrofit
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -35,7 +28,7 @@ object AppModules {
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
-        return Retrofit.Builder().baseUrl(Configs.BASE_URL)
+        return Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
 
@@ -51,7 +44,7 @@ object AppModules {
     @Singleton
     @Provides
     fun provideZingRetrofit(okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder().baseUrl(Configs.ZING_BASE_URL)
+        return Retrofit.Builder().baseUrl(ZING_BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -61,7 +54,7 @@ object AppModules {
     @Provides
     @Singleton
     fun provideCookiesRetrofit(): Retrofit {
-        return Retrofit.Builder().baseUrl(Configs.ZING_BASE_URL)
+        return Retrofit.Builder().baseUrl(ZING_BASE_URL)
             .addConverterFactory(ScalarsConverterFactory.create())
             .build()
     }
@@ -77,4 +70,9 @@ object AppModules {
     fun provideZingService(@ZingRetrofit retrofit: Retrofit): ZingService {
         return retrofit.create(ZingService::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideDatastore(@ApplicationContext context: Context): DataStore<Preferences> =
+        context.dataStore
 }

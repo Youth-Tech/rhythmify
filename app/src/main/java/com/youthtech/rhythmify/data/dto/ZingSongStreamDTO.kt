@@ -1,4 +1,4 @@
-package com.youthtech.rhythmify.data.music_service
+package com.youthtech.rhythmify.data.dto
 
 data class ZingSongStreamResponse(
     val err: Number,
