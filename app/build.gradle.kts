@@ -37,6 +37,11 @@ android {
             "ZING_API_KEY",
             "\"${properties["ZING_API_KEY"]}\""
         )
+        buildConfigField(
+            "String",
+            "YOUTUBE_API_KEY",
+            "\"${properties["YOUTUBE_API_KEY"]}\""
+        )
     }
 
     buildTypes {

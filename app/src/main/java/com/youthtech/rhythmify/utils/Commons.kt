@@ -4,4 +4,5 @@ import kotlin.math.floor
 
 object Commons {
     val currentTime = floor(System.currentTimeMillis().toDouble() / 1000).toInt().toString()
+    var zingCookies: String = ""
 }

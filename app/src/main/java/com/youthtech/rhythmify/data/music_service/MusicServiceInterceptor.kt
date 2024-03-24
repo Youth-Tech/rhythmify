@@ -19,22 +19,26 @@ class MusicServiceInterceptor @Inject constructor(private val cookieService: Coo
 
         val originRequest = chain.request()
 
-        val cookies = runBlocking {
-            val cookieRes = cookieService.getCookie()
-            cookieRes.headers()
-        }
-        val headerMapList: Map<String, List<String>> = cookies.toMultimap()
-        val allCookies: List<String>? = headerMapList["set-cookie"]
-        var requestCookie = ""
-
-        allCookies?.let {
-            if (allCookies.isNotEmpty() && allCookies.size >= 2) {
-                requestCookie = allCookies[1]
-//                Log.d("MusicServiceInterceptor", "cookies: ${allCookies[1]}")
+        val requestCookie = Commons.zingCookies.ifEmpty {
+            val cookies = runBlocking {
+                val cookieRes = cookieService.getCookie()
+                cookieRes.headers()
             }
+
+            val headerMapList: Map<String, List<String>> = cookies.toMultimap()
+            val allCookies: List<String>? = headerMapList["set-cookie"]
+
+            allCookies?.let {
+                if (allCookies.isNotEmpty() && allCookies.size >= 2) {
+                    Commons.zingCookies = allCookies[1]
+//                Log.d("MusicServiceInterceptor", "cookies: ${allCookies[1]}")
+                }
+            }
+            Commons.zingCookies
         }
 
-        //handle new header with cookies
+
+//        handle new header with cookies
         val newHeader: Headers = Headers.Builder()
             .add("Cookie", requestCookie)
             .build()
