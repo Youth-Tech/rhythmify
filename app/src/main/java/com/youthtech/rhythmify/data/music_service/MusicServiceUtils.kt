@@ -27,6 +27,13 @@ fun hashHomeRadioSignature(apiPath: String, count: Number? = 10): String {
     )
 }
 
+fun hashHasCountSignature(apiPath: String, count: Number? = 10): String{
+    return hashHmac512(
+        "${apiPath}${hash256("count=${count}ctime=${Commons.currentTime}version=${ZING_VERSION}")}",
+        ZING_SECRET_KEY
+    )
+}
+
 fun hashListGenreSignature(
     apiPath: String,
     id: String,

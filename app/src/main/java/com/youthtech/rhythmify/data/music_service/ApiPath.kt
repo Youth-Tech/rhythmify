@@ -3,6 +3,7 @@ package com.youthtech.rhythmify.data.music_service
 object ApiPath {
     //zing path
     const val GET_HOME = "/api/v2/page/get/home"
+    const val GET_SECTION_SONG_STATION = "/api/v2/song/get/section-song-station"
     const val GET_SONG = "/api/v2/song/get/streaming"
     const val GET_SONG_INFO = "/api/v2/song/get/info"
     const val GET_SONG_LYRIC = "/api/v2/lyric/get/lyric"
@@ -26,4 +27,7 @@ object ApiPath {
     const val SEARCH_BY_TYPE = "/api/v2/search"
     const val GET_RECOMMEND_KEYWORD = "/api/v2/app/get/recommend-keyword"
     const val GET_SUGGEST_KEYWORD = "/v1/web/suggestion-keywords"
+
+    //youtube path
+    const val YOUTUBE_SEARCH = "/youtube/v3/search"
 }

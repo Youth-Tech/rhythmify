@@ -8,6 +8,7 @@ import com.youthtech.rhythmify.data.dto.ZingGetHubHomeResponse
 import com.youthtech.rhythmify.data.dto.ZingGetNewReleaseChartResponse
 //import com.youthtech.rhythmify.data.dto.ZingGetRadioResponse
 import com.youthtech.rhythmify.data.dto.ZingGetRecommendKeywordResponse
+import com.youthtech.rhythmify.data.dto.ZingGetSectionSongStationResponse
 import com.youthtech.rhythmify.data.dto.ZingGetTop100Response
 import com.youthtech.rhythmify.data.dto.ZingGetWeekChartResponse
 import com.youthtech.rhythmify.data.dto.ZingHomeResponse
@@ -34,6 +35,12 @@ interface ZingService {
         @Query("segmentId") segmentId: String? = "-1",
         @Query("sig") sig: String
     ): Response<ZingHomeResponse>
+
+    @GET(ApiPath.GET_SECTION_SONG_STATION)
+    suspend fun getSectionSongStation(
+        @Query("count") count: Number? = 10,
+        @Query("sig") sig: String
+    ): Response<ZingGetSectionSongStationResponse>
 
     @GET(ApiPath.GET_SONG)
     suspend fun getSong(
