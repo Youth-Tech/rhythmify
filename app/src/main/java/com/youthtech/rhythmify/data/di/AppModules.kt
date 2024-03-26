@@ -3,9 +3,11 @@ package com.youthtech.rhythmify.data.di
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.room.Room
 import com.youthtech.rhythmify.data.apis.CookieService
 import com.youthtech.rhythmify.data.apis.YoutubeService
 import com.youthtech.rhythmify.data.apis.ZingService
+import com.youthtech.rhythmify.data.database.RhythmifyDatabase
 import com.youthtech.rhythmify.data.music_service.MusicServiceInterceptor
 import com.youthtech.rhythmify.extensions.dataStore
 import com.youthtech.rhythmify.utils.BASE_URL
@@ -88,4 +90,10 @@ object AppModules {
     @Singleton
     fun provideDatastore(@ApplicationContext context: Context): DataStore<Preferences> =
         context.dataStore
+
+    @Provides
+    @Singleton
+    fun provideLocalDatabase(@ApplicationContext context: Context): RhythmifyDatabase = Room.databaseBuilder(context, RhythmifyDatabase::class.java, "RhythmDB.db")
+        .fallbackToDestructiveMigration()
+        .build()
 }
