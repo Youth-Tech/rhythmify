@@ -3,8 +3,8 @@ package com.youthtech.rhythmify.data.database.daos
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
-import com.youthtech.rhythmify.models.Song
-import com.youthtech.rhythmify.models.songinfo.SongInfo
+import com.youthtech.rhythmify.data.models.Song
+import com.youthtech.rhythmify.data.models.songinfo.SongInfo
 import kotlinx.coroutines.flow.Flow
 
 @Dao

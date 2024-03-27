@@ -4,11 +4,11 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.room.Room
-import com.youthtech.rhythmify.data.apis.CookieService
-import com.youthtech.rhythmify.data.apis.YoutubeService
-import com.youthtech.rhythmify.data.apis.ZingService
+import com.youthtech.rhythmify.data.network.api_models.CookieService
+import com.youthtech.rhythmify.data.network.api_models.YoutubeService
+import com.youthtech.rhythmify.data.network.api_models.ZingService
 import com.youthtech.rhythmify.data.database.RhythmifyDatabase
-import com.youthtech.rhythmify.data.apis.music_service.MusicServiceInterceptor
+import com.youthtech.rhythmify.data.network.utils.MusicServiceInterceptor
 import com.youthtech.rhythmify.extensions.dataStore
 import com.youthtech.rhythmify.utils.BASE_URL
 import com.youthtech.rhythmify.utils.YOUTUBE_API_BASE_URL
@@ -22,7 +22,6 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
