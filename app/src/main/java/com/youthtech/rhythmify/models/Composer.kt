@@ -3,7 +3,7 @@ package com.youthtech.rhythmify.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "composer")
 data class Composer (
    @PrimaryKey val id: String,
     val name: String,

@@ -1,4 +1,4 @@
-package com.youthtech.rhythmify.data.music_service
+package com.youthtech.rhythmify.data.apis.music_service
 
 import com.youthtech.rhythmify.utils.Commons
 import com.youthtech.rhythmify.utils.ZING_SECRET_KEY

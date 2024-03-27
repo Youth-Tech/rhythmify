@@ -6,7 +6,6 @@ import androidx.room.Relation
 import com.youthtech.rhythmify.models.Album
 import com.youthtech.rhythmify.models.Artist
 
-
 data class AlbumWithArtist(
     @Embedded val album: Album,
     @Relation(

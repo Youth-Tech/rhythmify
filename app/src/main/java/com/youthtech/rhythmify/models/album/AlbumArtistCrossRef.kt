@@ -2,7 +2,10 @@ package com.youthtech.rhythmify.models.album
 
 import androidx.room.Entity
 
-@Entity(primaryKeys = ["albumId","artistId"])
+@Entity(
+    tableName = "album_artist_cross_ref",
+    primaryKeys = ["albumId","artistId"]
+)
 class AlbumArtistCrossRef (
     val albumId: String,
     val artistId: String

@@ -8,7 +8,7 @@ import com.youthtech.rhythmify.data.apis.CookieService
 import com.youthtech.rhythmify.data.apis.YoutubeService
 import com.youthtech.rhythmify.data.apis.ZingService
 import com.youthtech.rhythmify.data.database.RhythmifyDatabase
-import com.youthtech.rhythmify.data.music_service.MusicServiceInterceptor
+import com.youthtech.rhythmify.data.apis.music_service.MusicServiceInterceptor
 import com.youthtech.rhythmify.extensions.dataStore
 import com.youthtech.rhythmify.utils.BASE_URL
 import com.youthtech.rhythmify.utils.YOUTUBE_API_BASE_URL
@@ -93,7 +93,8 @@ object AppModules {
 
     @Provides
     @Singleton
-    fun provideLocalDatabase(@ApplicationContext context: Context): RhythmifyDatabase = Room.databaseBuilder(context, RhythmifyDatabase::class.java, "RhythmDB.db")
-        .fallbackToDestructiveMigration()
-        .build()
+    fun provideLocalDatabase(@ApplicationContext context: Context): RhythmifyDatabase =
+        Room.databaseBuilder(context, RhythmifyDatabase::class.java, "RhythmDB")
+            .fallbackToDestructiveMigration()
+            .build()
 }

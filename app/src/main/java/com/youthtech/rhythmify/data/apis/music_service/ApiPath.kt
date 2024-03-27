@@ -1,4 +1,4 @@
-package com.youthtech.rhythmify.data.music_service
+package com.youthtech.rhythmify.data.apis.music_service
 
 object ApiPath {
     //zing path

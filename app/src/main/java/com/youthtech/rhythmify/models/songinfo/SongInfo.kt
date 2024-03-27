@@ -11,30 +11,47 @@ import com.youthtech.rhythmify.models.Song
 
 data class SongInfo(
     @Embedded val song: Song,
+
     @Relation(
         parentColumn = "encodeId",
         entityColumn = "id",
-        associateBy = Junction(SongGenreCrossRef::class)
+        entity = Genre::class,
+        associateBy = Junction(
+            value = SongGenreCrossRef::class,
+            parentColumn = "songId",
+            entityColumn = "genreId"
+        )
     )
     val genres: List<Genre>,
 
     @Relation(
         parentColumn = "encodeId",
         entityColumn = "id",
-        associateBy = Junction(SongComposerCrossRef::class)
+        entity = Composer::class,
+        associateBy = Junction(
+            value = SongComposerCrossRef::class,
+            parentColumn = "songId",
+            entityColumn = "composerId"
+        )
     )
     val composers: List<Composer>,
 
     @Relation(
         parentColumn = "encodeId",
         entityColumn = "id",
-        associateBy = Junction(SongArtistCrossRef::class)
+        entity = Artist::class,
+        associateBy = Junction(
+            value = SongArtistCrossRef::class,
+            parentColumn = "songId",
+            entityColumn = "artistId"
+        )
     )
     val artists: List<Artist>,
 
     @Relation(
         parentColumn = "encodeId",
-        entityColumn = "id"
+        entityColumn = "id",
+        entity = Album::class
     )
     val album: Album
 )

@@ -20,7 +20,7 @@ import com.youthtech.rhythmify.data.dto.ZingSongLyricsResponse
 import com.youthtech.rhythmify.data.dto.ZingSongStreamResponse
 import com.youthtech.rhythmify.data.dto.ZingSuggestKeywordResponse
 import com.youthtech.rhythmify.data.dto.ZingSuggestPlaylistResponse
-import com.youthtech.rhythmify.data.music_service.ApiPath
+import com.youthtech.rhythmify.data.apis.music_service.ApiPath
 import com.youthtech.rhythmify.enums.MvSort
 import com.youthtech.rhythmify.enums.SearchType
 import retrofit2.Response

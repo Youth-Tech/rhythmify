@@ -3,7 +3,7 @@ package com.youthtech.rhythmify.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "album")
 data class Album(
     @PrimaryKey val id: String,
     val title: String,

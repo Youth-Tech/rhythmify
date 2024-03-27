@@ -8,7 +8,7 @@ import com.youthtech.rhythmify.data.dto.Composer
 import com.youthtech.rhythmify.data.dto.Genre
 import com.youthtech.rhythmify.data.dto.PreviewInfo
 
-@Entity
+@Entity(tableName = "song")
 data class Song(
     @PrimaryKey val encodeId: String,
     val title: String,
@@ -26,4 +26,5 @@ data class Song(
     val listen: Long,
     val liked: Boolean,
     val comment: Long,
+    val albumId: String
 )

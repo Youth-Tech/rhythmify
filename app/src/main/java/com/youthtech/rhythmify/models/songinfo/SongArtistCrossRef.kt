@@ -2,8 +2,11 @@ package com.youthtech.rhythmify.models.songinfo
 
 import androidx.room.Entity
 
-@Entity(primaryKeys = ["encodeId", "id"])
+@Entity(
+    tableName = "song_artist_cross_ref",
+    primaryKeys = ["songId", "artistId"],
+)
 data class SongArtistCrossRef (
-    val encodeId: String,
-    val id: String
+    val songId: String,
+    val artistId: String
 )
