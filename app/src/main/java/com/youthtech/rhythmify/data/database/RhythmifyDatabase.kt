@@ -28,5 +28,5 @@ import com.youthtech.rhythmify.data.models.songinfo.SongGenreCrossRef
     version = 1
 )
 abstract class RhythmifyDatabase : RoomDatabase() {
-    abstract fun songInfoDao(): SongDAO
+    abstract fun songDao(): SongDAO
 }
