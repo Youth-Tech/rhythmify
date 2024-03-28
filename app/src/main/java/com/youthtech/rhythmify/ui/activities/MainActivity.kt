@@ -1,55 +1,52 @@
 package com.youthtech.rhythmify.ui.activities
 
-import com.youthtech.rhythmify.data.apis.YoutubeService
-import com.youthtech.rhythmify.data.apis.ZingService
-import com.youthtech.rhythmify.data.music_service.ApiPath
-import com.youthtech.rhythmify.data.music_service.hashHasCountSignature
-import com.youthtech.rhythmify.data.music_service.hashHomeRadioSignature
-import com.youthtech.rhythmify.data.music_service.hashNoIdSignature
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.youthtech.rhythmify.databinding.ActivityMainBinding
 import com.youthtech.rhythmify.ui.base.BaseActivity
+import com.youthtech.rhythmify.utils.Resource
+import com.youthtech.rhythmify.viewmodels.TestViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import javax.inject.Inject
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
-    @Inject
-    lateinit var zingService: ZingService
-
-    @Inject
-    lateinit var youtubeService: YoutubeService
+    private val testViewModel: TestViewModel by viewModels()
 
     override fun init() {
     }
 
     override fun addListener() {
-        binding.api.setOnClickListener {
-            GlobalScope.launch(Dispatchers.IO) {
-                zingService.getTop100(
-                    sig = hashNoIdSignature(
-                        ApiPath.GET_TOP_100,
-                    )
-                )
-            }
+        binding.dbtest.setOnClickListener {
+            testViewModel.getSongInfo("ZU0C7BOE")
         }
 
-        binding.api2.setOnClickListener {
-            GlobalScope.launch(Dispatchers.IO) {
-                zingService.getHome(
-                    sig = hashHomeRadioSignature(
-                        ApiPath.GET_HOME,
-                        15
-                    )
-                )
-            }
-        }
+        lifecycleScope.launch(Dispatchers.IO) {
+            testViewModel.songInfo.collect {
+                withContext(Dispatchers.Main) {
+                    when (it) {
+                        is Resource.Error -> Toast.makeText(
+                            this@MainActivity,
+                            "Error ${it.data?.song?.title}",
+                            Toast.LENGTH_LONG
+                        ).show()
 
-        binding.api3.setOnClickListener {
-            GlobalScope.launch(Dispatchers.IO) {
-                youtubeService.getSearchResultFromYoutube("Thích em hơi nhiều - WrenEven")
+                        is Resource.Loading -> Toast.makeText(
+                            this@MainActivity,
+                            "Loading",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        is Resource.Success -> Toast.makeText(
+                            this@MainActivity,
+                            "Success ${it.data?.song?.title}",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
             }
         }
     }
