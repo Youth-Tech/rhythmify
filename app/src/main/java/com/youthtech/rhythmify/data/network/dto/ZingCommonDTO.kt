@@ -2,7 +2,7 @@ package com.youthtech.rhythmify.data.network.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class Artist(
+data class ArtistDTO(
     val id: String,
     val name: String,
     val link: String,
@@ -16,7 +16,7 @@ data class Artist(
     val totalFollow: Long?,
 )
 
-data class Album(
+data class AlbumDTO(
     val encodeId: String,
     val title: String,
     val thumbnail: String,
@@ -29,11 +29,11 @@ data class Album(
     val genreIds: List<String>,
     @SerializedName("PR")
     val pr: Boolean,
-    val artists: List<Artist>,
+    val artists: List<ArtistDTO>,
     val artistsNames: String,
 )
 
-data class Genre(
+data class GenreDTO(
     val id: String,
     val name: String,
     val title: String,
@@ -41,7 +41,7 @@ data class Genre(
     val link: String,
 )
 
-data class Composer(
+data class ComposerDTO(
     val id: String,
     val name: String,
     val link: String,
@@ -58,14 +58,14 @@ data class PreviewInfo(
     val endTime: Long,
 )
 
-data class Song(
+data class SongDTO(
     val encodeId: String,
     val title: String,
     val alias: String,
     val isOffical: Boolean,
     val username: String,
     val artistsNames: String,
-    val artists: List<Artist>,
+    val artists: List<ArtistDTO>,
     val isWorldWide: Boolean,
     val previewInfo: PreviewInfo?,
     val thumbnailM: String,
@@ -77,7 +77,7 @@ data class Song(
     val preRelease: Boolean,
     val releaseDate: Long,
     val genreIds: List<String>,
-    val album: Album?,
+    val album: AlbumDTO?,
     val distributor: String,
     val indicators: List<String>,
     val isIndie: Boolean,
@@ -97,7 +97,7 @@ data class Promote(
     val isOffical: Boolean,
     val username: String,
     val artistsNames: String,
-    val artists: List<Artist>,
+    val artists: List<ArtistDTO>,
     val isWorldWide: Boolean,
     val thumbnailM: String,
     val link: String,
@@ -108,7 +108,7 @@ data class Promote(
     val preRelease: Boolean,
     val releaseDate: Long,
     val genreIds: List<String>,
-    val album: Album,
+    val album: AlbumDTO,
     val distributor: String,
     val indicators: List<String>,
     val isIndie: Boolean,

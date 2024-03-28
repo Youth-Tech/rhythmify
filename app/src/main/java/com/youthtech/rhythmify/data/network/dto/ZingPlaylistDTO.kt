@@ -22,7 +22,7 @@ data class ZingPlaylistData(
     val genreIds: List<String>,
     @SerializedName("PR")
     val pr: Boolean,
-    val artists: List<Artist>,
+    val artists: List<ArtistDTO>,
     val artistsNames: String,
     val playItemMode: Long,
     val subType: Long,
@@ -39,8 +39,8 @@ data class ZingPlaylistData(
     val aliasTitle: String,
     val sectionId: String,
     val contentLastUpdate: Long,
-    val artist: Artist,
-    val genres: List<Genre>,
+    val artist: ArtistDTO,
+    val genres: List<GenreDTO>,
     val song: SongPlaylist,
     val like: Long,
     val listen: Long,
@@ -48,7 +48,7 @@ data class ZingPlaylistData(
 )
 
 data class SongPlaylist(
-    val items: List<Song>,
+    val items: List<SongDTO>,
     val total: Long,
     val totalDuration: Long,
 )

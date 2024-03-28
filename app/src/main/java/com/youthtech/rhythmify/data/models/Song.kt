@@ -2,11 +2,6 @@ package com.youthtech.rhythmify.data.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
-import com.youthtech.rhythmify.data.network.dto.Artist
-import com.youthtech.rhythmify.data.network.dto.Composer
-import com.youthtech.rhythmify.data.network.dto.Genre
-import com.youthtech.rhythmify.data.network.dto.PreviewInfo
 
 @Entity(tableName = "song")
 data class Song(

@@ -16,7 +16,7 @@ data class ZingGetTop100Data(
     val link: String,
     val sectionId: String,
     val items: List<ZingGetTop100Item>,
-    val genre: Genre,
+    val genre: GenreDTO,
 )
 
 data class ZingGetTop100Item(
@@ -32,7 +32,7 @@ data class ZingGetTop100Item(
     val genreIds: List<String>,
     @SerializedName("PR")
     val pr: Boolean,
-    val artists: List<Artist>,
+    val artists: List<ArtistDTO>,
     val artistsNames: String,
     val playItemMode: Long,
     val subType: Long,

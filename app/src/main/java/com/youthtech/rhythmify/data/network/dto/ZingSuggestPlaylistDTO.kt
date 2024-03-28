@@ -40,7 +40,7 @@ data class ZingSuggestPlaylistDataItem(
     val genreIds: List<String>?,
     @SerializedName("PR")
     val pr: Boolean?,
-    val artists: List<Artist>?,
+    val artists: List<ArtistDTO>?,
     val artistsNames: String?,
     val playItemMode: Long?,
     val subType: Long?,

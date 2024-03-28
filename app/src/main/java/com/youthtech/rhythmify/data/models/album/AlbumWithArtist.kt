@@ -9,9 +9,14 @@ import com.youthtech.rhythmify.data.models.Artist
 data class AlbumWithArtist(
     @Embedded val album: Album,
     @Relation(
-        parentColumn = "encodeId",
+        parentColumn = "id",
         entityColumn = "id",
-        associateBy = Junction(AlbumArtistCrossRef::class)
+        entity = Artist::class,
+        associateBy = Junction(
+            value = AlbumArtistCrossRef::class,
+            entityColumn = "artistId",
+            parentColumn = "albumId"
+        )
     )
     val artists: List<Artist>
 )

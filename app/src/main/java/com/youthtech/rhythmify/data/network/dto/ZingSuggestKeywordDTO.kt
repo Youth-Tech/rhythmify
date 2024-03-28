@@ -49,8 +49,8 @@ data class Suggestion(
     val playStatus: Long,
     val downloadPrvl: List<Long>?,
     val downloadPrvlPkgId: Long?,
-    val artists: List<Artist>,
-    val genres: List<Genre>,
+    val artists: List<ArtistDTO>,
+    val genres: List<GenreDTO>,
     @SerializedName("disSPlatform")
     val disSplatform: Long,
     @SerializedName("disDPlatform")

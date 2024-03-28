@@ -8,5 +8,5 @@ class ZingGetSectionSongStationResponse(
 )
 
 data class SongStationData(
-    val items: List<Song>,
+    val items: List<SongDTO>,
 )

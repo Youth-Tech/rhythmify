@@ -11,8 +11,8 @@ data class ZingSearchAllResponse(
 
 data class ZingSearchAllData(
     val top: Top,
-    val artists: List<Artist>,
-    val songs: List<Song>,
+    val artists: List<ArtistDTO>,
+    val songs: List<SongDTO>,
     val videos: List<Video>,
     val playlists: List<Playlist>,
     val counter: Counter,
@@ -38,14 +38,14 @@ data class Video(
     val isOffical: Boolean,
     val username: String,
     val artistsNames: String,
-    val artists: List<Artist>,
+    val artists: List<ArtistDTO>,
     val isWorldWide: Boolean,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
     val duration: Long,
     val streamingStatus: Long,
-    val artist: Artist,
+    val artist: ArtistDTO,
 )
 
 data class Playlist(
@@ -61,7 +61,7 @@ data class Playlist(
     val genreIds: List<String>,
     @SerializedName("PR")
     val pr: Boolean,
-    val artists: List<Artist>,
+    val artists: List<ArtistDTO>,
     val artistsNames: String,
     val playItemMode: Long,
     val subType: Long,

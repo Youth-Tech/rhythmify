@@ -41,7 +41,7 @@ sealed class ZingSearchByTypeDataItem {
         val isOffical: Boolean,
         val username: String,
         val artistsNames: String,
-        val artists: List<Artist>,
+        val artists: List<ArtistDTO>,
         val isWorldWide: Boolean,
         val thumbnailM: String,
         val link: String,
@@ -66,7 +66,7 @@ sealed class ZingSearchByTypeDataItem {
         val uname: String,
         val canEdit: Boolean,
         val canDelete: Boolean,
-        val album: Album,
+        val album: AlbumDTO,
         val previewInfo: PreviewInfo?,
         val radioId: Long?,
         val hasLyric: Boolean?,
@@ -86,7 +86,7 @@ sealed class ZingSearchByTypeDataItem {
         val genreIds: List<String>,
         @SerializedName("PR")
         val pr: Boolean,
-        val artists: List<Artist>?,
+        val artists: List<ArtistDTO>?,
         val artistsNames: String?,
         val playItemMode: Long,
         val subType: Long,
@@ -110,7 +110,7 @@ sealed class ZingSearchByTypeDataItem {
         val isOffical: Boolean,
         val username: String,
         val artistsNames: String,
-        val artists: List<Artist>,
+        val artists: List<ArtistDTO>,
         val isWorldWide: Boolean,
         val thumbnailM: String,
         val link: String,
@@ -118,7 +118,7 @@ sealed class ZingSearchByTypeDataItem {
         val duration: Long,
         val streamingStatus: Long,
         val streamPrivileges: List<Long>,
-        val artist: Artist,
+        val artist: ArtistDTO,
     ) : ZingSearchByTypeDataItem()
 
 }

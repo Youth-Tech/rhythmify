@@ -13,7 +13,7 @@ data class ZingGetHubHomeData(
     val topTopic: List<TopTopic>,
     val topic: List<Topic>,
     val nations: List<Nation>,
-    val genre: List<Genre>,
+    val genre: List<GenreDTO>,
     val sectionId: String,
 )
 
