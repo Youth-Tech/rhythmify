@@ -5,17 +5,17 @@ import com.google.gson.annotations.SerializedName
 data class ZingSearchAllResponse(
     val err: Long,
     val msg: String,
-    val data: com.youthtech.rhythmify.data.network.dto.ZingSearchAllData,
+    val data: ZingSearchAllData,
     val timestamp: Long,
 )
 
 data class ZingSearchAllData(
-    val top: com.youthtech.rhythmify.data.network.dto.Top,
-    val artists: List<com.youthtech.rhythmify.data.network.dto.Artist>,
-    val songs: List<com.youthtech.rhythmify.data.network.dto.Song>,
-    val videos: List<com.youthtech.rhythmify.data.network.dto.Video>,
-    val playlists: List<com.youthtech.rhythmify.data.network.dto.Playlist>,
-    val counter: com.youthtech.rhythmify.data.network.dto.Counter,
+    val top: Top,
+    val artists: List<Artist>,
+    val songs: List<Song>,
+    val videos: List<Video>,
+    val playlists: List<Playlist>,
+    val counter: Counter,
     val sectionId: String,
 )
 
@@ -38,14 +38,14 @@ data class Video(
     val isOffical: Boolean,
     val username: String,
     val artistsNames: String,
-    val artists: List<com.youthtech.rhythmify.data.network.dto.Artist>,
+    val artists: List<Artist>,
     val isWorldWide: Boolean,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
     val duration: Long,
     val streamingStatus: Long,
-    val artist: com.youthtech.rhythmify.data.network.dto.Artist,
+    val artist: Artist,
 )
 
 data class Playlist(
@@ -61,7 +61,7 @@ data class Playlist(
     val genreIds: List<String>,
     @SerializedName("PR")
     val pr: Boolean,
-    val artists: List<com.youthtech.rhythmify.data.network.dto.Artist>,
+    val artists: List<Artist>,
     val artistsNames: String,
     val playItemMode: Long,
     val subType: Long,

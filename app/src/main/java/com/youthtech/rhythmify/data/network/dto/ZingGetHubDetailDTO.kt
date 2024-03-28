@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ZingGetHubDetailResponse(
     val err: Long,
     val msg: String,
-    val data: com.youthtech.rhythmify.data.network.dto.ZingGetHubDetailData,
+    val data: ZingGetHubDetailData,
     val timestamp: Long,
 )
 
@@ -18,7 +18,7 @@ data class ZingGetHubDetailData(
     val title: String,
     val link: String,
     val description: String,
-    val sections: List<com.youthtech.rhythmify.data.network.dto.ZingHubDetailSection>,
+    val sections: List<ZingHubDetailSection>,
 )
 
 data class ZingHubDetailSection(
@@ -27,7 +27,7 @@ data class ZingHubDetailSection(
     val title: String,
     val link: String,
     val sectionId: String,
-    val items: List<com.youthtech.rhythmify.data.network.dto.ZingGetHubDetailItem>,
+    val items: List<ZingGetHubDetailItem>,
 )
 
 data class ZingGetHubDetailItem(
@@ -42,7 +42,7 @@ data class ZingGetHubDetailItem(
     val releasedAt: Long,
     val genreIds: List<String>,
     @SerializedName("PR") val pr: Boolean,
-    val artists: List<com.youthtech.rhythmify.data.network.dto.Artist>,
+    val artists: List<Artist>,
     val artistsNames: String,
     val playItemMode: Long,
     val subType: Long,

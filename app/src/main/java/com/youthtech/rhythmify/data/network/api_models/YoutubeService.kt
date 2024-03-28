@@ -1,5 +1,6 @@
 package com.youthtech.rhythmify.data.network.api_models
 
+import com.youthtech.rhythmify.data.network.dto.YoutubeSearchResponse
 import com.youthtech.rhythmify.data.network.utils.ApiPath
 import com.youthtech.rhythmify.utils.YOUTUBE_API_KEY
 import retrofit2.Response
@@ -13,5 +14,5 @@ interface YoutubeService {
         @Query("key") apiKey: String? = YOUTUBE_API_KEY,
         @Query("type") type: String? = "video",
         @Query("videoCategoryId") videoCategoryId: String? = "20"
-    ): Response<com.youthtech.rhythmify.data.network.dto.YoutubeSearchResponse>
+    ): Response<YoutubeSearchResponse>
 }

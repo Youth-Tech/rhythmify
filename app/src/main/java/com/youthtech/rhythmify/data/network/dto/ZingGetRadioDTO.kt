@@ -1,3 +1,5 @@
+package com.youthtech.rhythmify.data.network.dto
+
 data class ZingGetRadioResponse(
     val err: Long,
     val msg: String,

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 data class ZingSongInfoResponse(
     val err: Long,
     val msg: String,
-    val data: com.youthtech.rhythmify.data.network.dto.ZingSongInfoData,
+    val data: ZingSongInfoData,
     val timestamp: Long,
 )
 
@@ -15,7 +15,7 @@ data class ZingSongInfoData(
     val isOffical: Boolean,
     val username: String,
     val artistsNames: String,
-    val artists: List<com.youthtech.rhythmify.data.network.dto.Artist>,
+    val artists: List<Artist>,
     val isWorldWide: Boolean,
     val thumbnailM: String,
     val link: String,
@@ -34,9 +34,9 @@ data class ZingSongInfoData(
     val allowAudioAds: Boolean,
     val hasLyric: Boolean,
     val userid: Long,
-    val genres: List<com.youthtech.rhythmify.data.network.dto.Genre>,
-    val composers: List<com.youthtech.rhythmify.data.network.dto.Composer>,
-    val album: com.youthtech.rhythmify.data.network.dto.Album,
+    val genres: List<Genre>,
+    val composers: List<Composer>,
+    val album: Album,
     @SerializedName("isRBT")
     val isRbt: Boolean,
     val like: Long,

@@ -6,17 +6,17 @@ data class ZingSuggestKeywordResponse(
     val err: Long,
     val msg: String,
     val sTime: Long,
-    val data: com.youthtech.rhythmify.data.network.dto.ZingSuggestKeywordData,
+    val data: ZingSuggestKeywordData,
 )
 
 data class ZingSuggestKeywordData(
     val tracking: String,
-    val items: List<com.youthtech.rhythmify.data.network.dto.SuggestKeywordDataItem>,
+    val items: List<SuggestKeywordDataItem>,
 )
 
 data class SuggestKeywordDataItem(
-    val keywords: List<com.youthtech.rhythmify.data.network.dto.Keyword>?,
-    val suggestions: List<com.youthtech.rhythmify.data.network.dto.Suggestion>?,
+    val keywords: List<Keyword>?,
+    val suggestions: List<Suggestion>?,
 )
 
 data class Keyword(
@@ -49,8 +49,8 @@ data class Suggestion(
     val playStatus: Long,
     val downloadPrvl: List<Long>?,
     val downloadPrvlPkgId: Long?,
-    val artists: List<com.youthtech.rhythmify.data.network.dto.Artist>,
-    val genres: List<com.youthtech.rhythmify.data.network.dto.Genre>,
+    val artists: List<Artist>,
+    val genres: List<Genre>,
     @SerializedName("disSPlatform")
     val disSplatform: Long,
     @SerializedName("disDPlatform")
@@ -61,5 +61,5 @@ data class Suggestion(
     val hLyricVersion: Long?,
     val playPrvl: List<Long>?,
     val playPrvlPkgId: Long?,
-    val video: com.youthtech.rhythmify.data.network.dto.Video?,
+    val video: Video?,
 )

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ZingSuggestPlaylistResponse(
     val err: Long,
     val msg: String,
-    val data: List<com.youthtech.rhythmify.data.network.dto.ZingSuggestPlaylistData>,
+    val data: List<ZingSuggestPlaylistData>,
     val timestamp: Long,
 )
 
@@ -15,7 +15,7 @@ data class ZingSuggestPlaylistData(
     val title: String?,
     val link: String?,
     val sectionId: String?,
-    val items: List<com.youthtech.rhythmify.data.network.dto.ZingSuggestPlaylistDataItem>?,
+    val items: List<ZingSuggestPlaylistDataItem>?,
     val adId: String?,
     val pageType: String?,
 )
@@ -40,7 +40,7 @@ data class ZingSuggestPlaylistDataItem(
     val genreIds: List<String>?,
     @SerializedName("PR")
     val pr: Boolean?,
-    val artists: List<com.youthtech.rhythmify.data.network.dto.Artist>?,
+    val artists: List<Artist>?,
     val artistsNames: String?,
     val playItemMode: Long?,
     val subType: Long?,

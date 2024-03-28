@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ZingSearchByTypeResponse(
     val err: Long,
     val msg: String,
-    val data: com.youthtech.rhythmify.data.network.dto.ZingSearchByTypeData,
+    val data: ZingSearchByTypeData,
     val timestamp: Long,
 )
 
@@ -32,7 +32,7 @@ sealed class ZingSearchByTypeDataItem {
         val isOABrand: Boolean,
         val playlistId: String?,
         val totalFollow: Long,
-    ) : com.youthtech.rhythmify.data.network.dto.ZingSearchByTypeDataItem()
+    ) : ZingSearchByTypeDataItem()
 
     data class ZingSearchByTypeSongItem(
         val encodeId: String,
@@ -41,7 +41,7 @@ sealed class ZingSearchByTypeDataItem {
         val isOffical: Boolean,
         val username: String,
         val artistsNames: String,
-        val artists: List<com.youthtech.rhythmify.data.network.dto.Artist>,
+        val artists: List<Artist>,
         val isWorldWide: Boolean,
         val thumbnailM: String,
         val link: String,
@@ -66,12 +66,12 @@ sealed class ZingSearchByTypeDataItem {
         val uname: String,
         val canEdit: Boolean,
         val canDelete: Boolean,
-        val album: com.youthtech.rhythmify.data.network.dto.Album,
-        val previewInfo: com.youthtech.rhythmify.data.network.dto.PreviewInfo?,
+        val album: Album,
+        val previewInfo: PreviewInfo?,
         val radioId: Long?,
         val hasLyric: Boolean?,
         val mvlink: String?,
-    ) : com.youthtech.rhythmify.data.network.dto.ZingSearchByTypeDataItem()
+    ) : ZingSearchByTypeDataItem()
 
     data class ZingSearchByTypePlaylistItem(
         val encodeId: String,
@@ -86,7 +86,7 @@ sealed class ZingSearchByTypeDataItem {
         val genreIds: List<String>,
         @SerializedName("PR")
         val pr: Boolean,
-        val artists: List<com.youthtech.rhythmify.data.network.dto.Artist>?,
+        val artists: List<Artist>?,
         val artistsNames: String?,
         val playItemMode: Long,
         val subType: Long,
@@ -101,7 +101,7 @@ sealed class ZingSearchByTypeDataItem {
         val isOwner: Boolean,
         val canEdit: Boolean,
         val canDelete: Boolean,
-    ) : com.youthtech.rhythmify.data.network.dto.ZingSearchByTypeDataItem()
+    ) : ZingSearchByTypeDataItem()
 
     data class ZingSearchByTypeVideoItem(
         val encodeId: String,
@@ -110,7 +110,7 @@ sealed class ZingSearchByTypeDataItem {
         val isOffical: Boolean,
         val username: String,
         val artistsNames: String,
-        val artists: List<com.youthtech.rhythmify.data.network.dto.Artist>,
+        val artists: List<Artist>,
         val isWorldWide: Boolean,
         val thumbnailM: String,
         val link: String,
@@ -118,7 +118,7 @@ sealed class ZingSearchByTypeDataItem {
         val duration: Long,
         val streamingStatus: Long,
         val streamPrivileges: List<Long>,
-        val artist: com.youthtech.rhythmify.data.network.dto.Artist,
-    ) : com.youthtech.rhythmify.data.network.dto.ZingSearchByTypeDataItem()
+        val artist: Artist,
+    ) : ZingSearchByTypeDataItem()
 
 }

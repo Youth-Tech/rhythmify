@@ -3,12 +3,12 @@ package com.youthtech.rhythmify.data.network.dto
 data class ZingHomeResponse(
     val err: Long,
     val msg: String,
-    val data: com.youthtech.rhythmify.data.network.dto.ZingHomeData,
+    val data: ZingHomeData,
     val timestamp: Long,
 )
 
 data class ZingHomeData(
-    val items: List<com.youthtech.rhythmify.data.network.dto.ZingHomeDataItem>,
+    val items: List<ZingHomeDataItem>,
     val hasMore: Boolean,
     val total: Long,
 )
@@ -21,11 +21,11 @@ data class ZingHomeDataItem(
     val sectionId: String?,
     val items: Any?,
     val itemType: String?,
-    val options: com.youthtech.rhythmify.data.network.dto.Options?,
+    val options: Options?,
     val banner: String?,
     val type: String?,
-    val promotes: List<com.youthtech.rhythmify.data.network.dto.Promote>?,
-    val chart: com.youthtech.rhythmify.data.network.dto.Chart?,
+    val promotes: List<Promote>?,
+    val chart: Chart?,
     val chartType: String?,
 )
 

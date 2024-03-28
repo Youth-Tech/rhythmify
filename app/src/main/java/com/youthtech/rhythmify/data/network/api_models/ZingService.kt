@@ -1,7 +1,24 @@
 package com.youthtech.rhythmify.data.network.api_models
 
-import ZingGetRadioResponse
-//import com.youthtech.rhythmify.data.dto.ZingGetRadioResponse
+import com.youthtech.rhythmify.data.network.dto.ZingGetArtistResponse
+import com.youthtech.rhythmify.data.network.dto.ZingGetHomeChartResponse
+import com.youthtech.rhythmify.data.network.dto.ZingGetHubDetailResponse
+import com.youthtech.rhythmify.data.network.dto.ZingGetHubHomeResponse
+import com.youthtech.rhythmify.data.network.dto.ZingGetNewReleaseChartResponse
+import com.youthtech.rhythmify.data.network.dto.ZingGetRadioResponse
+import com.youthtech.rhythmify.data.network.dto.ZingGetRecommendKeywordResponse
+import com.youthtech.rhythmify.data.network.dto.ZingGetSectionSongStationResponse
+import com.youthtech.rhythmify.data.network.dto.ZingGetTop100Response
+import com.youthtech.rhythmify.data.network.dto.ZingGetWeekChartResponse
+import com.youthtech.rhythmify.data.network.dto.ZingHomeResponse
+import com.youthtech.rhythmify.data.network.dto.ZingPlaylistResponse
+import com.youthtech.rhythmify.data.network.dto.ZingSearchAllResponse
+import com.youthtech.rhythmify.data.network.dto.ZingSearchByTypeResponse
+import com.youthtech.rhythmify.data.network.dto.ZingSongInfoResponse
+import com.youthtech.rhythmify.data.network.dto.ZingSongLyricsResponse
+import com.youthtech.rhythmify.data.network.dto.ZingSongStreamResponse
+import com.youthtech.rhythmify.data.network.dto.ZingSuggestKeywordResponse
+import com.youthtech.rhythmify.data.network.dto.ZingSuggestPlaylistResponse
 import com.youthtech.rhythmify.data.network.utils.ApiPath
 import com.youthtech.rhythmify.enums.MvSort
 import com.youthtech.rhythmify.enums.SearchType
@@ -16,41 +33,41 @@ interface ZingService {
         @Query("count") count: Number? = 15,
         @Query("segmentId") segmentId: String? = "-1",
         @Query("sig") sig: String
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingHomeResponse>
+    ): Response<ZingHomeResponse>
 
     @GET(ApiPath.GET_SECTION_SONG_STATION)
     suspend fun getSectionSongStation(
         @Query("count") count: Number? = 10,
         @Query("sig") sig: String
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingGetSectionSongStationResponse>
+    ): Response<ZingGetSectionSongStationResponse>
 
     @GET(ApiPath.GET_SONG)
     suspend fun getSong(
         @Query("id") id: String,
         @Query("sig") sig: String
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingSongStreamResponse>
+    ): Response<ZingSongStreamResponse>
 
     @GET(ApiPath.GET_SONG_INFO)
     suspend fun getSongInfo(
         @Query("id") id: String,
         @Query("sig") sig: String
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingSongInfoResponse>
+    ): Response<ZingSongInfoResponse>
 
     @GET(ApiPath.GET_SONG_LYRIC)
     suspend fun getSongLyric(
         @Query("id") id: String,
         @Query("sig") sig: String
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingSongLyricsResponse>
+    ): Response<ZingSongLyricsResponse>
 
     @GET(ApiPath.GET_HOME_CHART)
     suspend fun getHomeChart(
         @Query("sig") sig: String
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingGetHomeChartResponse>
+    ): Response<ZingGetHomeChartResponse>
 
     @GET(ApiPath.GET_NEW_RELEASE_CHART)
     suspend fun getNewReleaseChart(
         @Query("sig") sig: String
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingGetNewReleaseChartResponse>
+    ): Response<ZingGetNewReleaseChartResponse>
 
     @GET(ApiPath.GET_WEEK_CHART)
     suspend fun getWeekChart(
@@ -58,7 +75,7 @@ interface ZingService {
         @Query("week") week: Number,
         @Query("year") year: Number,
         @Query("sig") sig: String
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingGetWeekChartResponse>
+    ): Response<ZingGetWeekChartResponse>
 
     @GET(ApiPath.GET_RADIO)
     suspend fun getRadio(
@@ -79,23 +96,23 @@ interface ZingService {
     suspend fun getArtist(
         @Query("alias") name: String,
         @Query("sig") sig: String,
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingGetArtistResponse>
+    ): Response<ZingGetArtistResponse>
 
     @GET(ApiPath.GET_HUB_HOME)
     suspend fun getHubHome(
         @Query("sig") sig: String,
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingGetHubHomeResponse>
+    ): Response<ZingGetHubHomeResponse>
 
     @GET(ApiPath.GET_HUB_DETAIL)
     suspend fun getHubHomeDetail(
         @Query("id") id: String,
         @Query("sig") sig: String,
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingGetHubDetailResponse>
+    ): Response<ZingGetHubDetailResponse>
 
     @GET(ApiPath.GET_TOP_100)
     suspend fun getTop100(
         @Query("sig") sig: String,
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingGetTop100Response>
+    ): Response<ZingGetTop100Response>
 
     @GET(ApiPath.GET_LIST_MV)
     suspend fun getListMv(
@@ -124,13 +141,13 @@ interface ZingService {
     suspend fun getPlaylist(
         @Query("id") playlistId: String,
         @Query("sig") sig: String,
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingPlaylistResponse>
+    ): Response<ZingPlaylistResponse>
 
     @GET(ApiPath.GET_SUGGEST_PLAYLIST)
     suspend fun getSuggestPlaylist(
         @Query("id") playlistId: String,
         @Query("sig") sig: String,
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingSuggestPlaylistResponse>
+    ): Response<ZingSuggestPlaylistResponse>
 
     @GET(ApiPath.GET_EVENT)
     suspend fun getEvent(
@@ -147,7 +164,7 @@ interface ZingService {
     suspend fun searchAll(
         @Query("q") keyword: String,
         @Query("sig") sig: String,
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingSearchAllResponse>
+    ): Response<ZingSearchAllResponse>
 
     @GET(ApiPath.SEARCH_BY_TYPE)
     suspend fun searchByType(
@@ -156,12 +173,12 @@ interface ZingService {
         @Query("page") page: Number? = 1,
         @Query("count") count: Number? = 18,
         @Query("sig") sig: String,
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingSearchByTypeResponse>
+    ): Response<ZingSearchByTypeResponse>
 
     @GET(ApiPath.GET_RECOMMEND_KEYWORD)
     suspend fun getRecommendKeyword(
         @Query("sig") sig: String,
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingGetRecommendKeywordResponse>
+    ): Response<ZingGetRecommendKeywordResponse>
 
     @GET(ApiPath.GET_SUGGEST_KEYWORD)
     suspend fun getSuggestKeyword(
@@ -169,5 +186,5 @@ interface ZingService {
         @Query("query") keyword: String,
         @Query("language") language: String? = "vi",
         @Query("sig") sig: String,
-    ): Response<com.youthtech.rhythmify.data.network.dto.ZingSuggestKeywordResponse>
+    ): Response<ZingSuggestKeywordResponse>
 }

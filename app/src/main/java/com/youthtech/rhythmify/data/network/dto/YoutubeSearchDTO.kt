@@ -4,8 +4,8 @@ data class YoutubeSearchResponse(
     val kind: String,
     val etag: String,
     val regionCode: String,
-    val pageInfo: com.youthtech.rhythmify.data.network.dto.PageInfo,
-    val items: List<com.youthtech.rhythmify.data.network.dto.YoutubeSearchItem>,
+    val pageInfo: PageInfo,
+    val items: List<YoutubeSearchItem>,
 )
 
 data class PageInfo(
@@ -16,7 +16,7 @@ data class PageInfo(
 data class YoutubeSearchItem(
     val kind: String,
     val etag: String,
-    val id: com.youthtech.rhythmify.data.network.dto.Id,
+    val id: Id,
 )
 
 data class Id(

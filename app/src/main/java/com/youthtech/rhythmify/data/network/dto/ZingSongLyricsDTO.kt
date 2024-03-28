@@ -5,12 +5,12 @@ import com.google.gson.annotations.SerializedName
 data class ZingSongLyricsResponse(
     val err: Long,
     val msg: String,
-    val data: com.youthtech.rhythmify.data.network.dto.ZingSongLyricsData,
+    val data: ZingSongLyricsData,
     val timestamp: Long,
 )
 
 data class ZingSongLyricsData(
-    val sentences: List<com.youthtech.rhythmify.data.network.dto.Sentence>,
+    val sentences: List<Sentence>,
     val file: String,
     val enabledVideoBG: Boolean,
     val streamingUrl: String,
@@ -20,7 +20,7 @@ data class ZingSongLyricsData(
 )
 
 data class Sentence(
-    val words: List<com.youthtech.rhythmify.data.network.dto.Word>,
+    val words: List<Word>,
 )
 
 data class Word(

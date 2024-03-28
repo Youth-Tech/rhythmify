@@ -4,7 +4,7 @@ package com.youthtech.rhythmify.data.network.dto
 data class ZingGetWeekChartResponse(
     val err: Long,
     val msg: String,
-    val data: com.youthtech.rhythmify.data.network.dto.ZingGetWeekChartData,
+    val data: ZingGetWeekChartData,
     val timestamp: Long,
 )
 
@@ -15,14 +15,14 @@ data class ZingGetWeekChartData(
     val cover: String,
     val country: String,
     val type: String,
-    val group: List<com.youthtech.rhythmify.data.network.dto.WeekChartGroup>,
+    val group: List<WeekChartGroup>,
     val link: String,
     val week: Long,
     val year: Long,
     val latestWeek: Long,
     val startDate: String,
     val endDate: String,
-    val items: List<com.youthtech.rhythmify.data.network.dto.WeekChartItem>,
+    val items: List<WeekChartItem>,
     val sectionId: String,
 )
 
@@ -33,9 +33,9 @@ data class WeekChartItem(
     val isOffical: Boolean,
     val username: String,
     val artistsNames: String,
-    val artists: List<com.youthtech.rhythmify.data.network.dto.Artist>,
+    val artists: List<Artist>,
     val isWorldWide: Boolean,
-    val previewInfo: com.youthtech.rhythmify.data.network.dto.PreviewInfo,
+    val previewInfo: PreviewInfo,
     val thumbnailM: String,
     val link: String,
     val thumbnail: String,
@@ -45,7 +45,7 @@ data class WeekChartItem(
     val preRelease: Boolean,
     val releaseDate: Long,
     val genreIds: List<String>,
-    val album: com.youthtech.rhythmify.data.network.dto.Album,
+    val album: Album,
     val distributor: String,
     val indicators: List<Any?>,
     val isIndie: Boolean,

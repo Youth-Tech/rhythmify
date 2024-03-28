@@ -3,17 +3,17 @@ package com.youthtech.rhythmify.data.network.dto
 data class ZingGetHubHomeResponse(
     val err: Long,
     val msg: String,
-    val data: com.youthtech.rhythmify.data.network.dto.ZingGetHubHomeData,
+    val data: ZingGetHubHomeData,
     val timestamp: Long,
 )
 
 data class ZingGetHubHomeData(
-    val banners: List<com.youthtech.rhythmify.data.network.dto.Banner>,
-    val featured: com.youthtech.rhythmify.data.network.dto.Featured,
-    val topTopic: List<com.youthtech.rhythmify.data.network.dto.TopTopic>,
-    val topic: List<com.youthtech.rhythmify.data.network.dto.Topic>,
-    val nations: List<com.youthtech.rhythmify.data.network.dto.Nation>,
-    val genre: List<com.youthtech.rhythmify.data.network.dto.Genre>,
+    val banners: List<Banner>,
+    val featured: Featured,
+    val topTopic: List<TopTopic>,
+    val topic: List<Topic>,
+    val nations: List<Nation>,
+    val genre: List<Genre>,
     val sectionId: String,
 )
 
@@ -24,7 +24,7 @@ data class Banner(
 
 data class Featured(
     val title: String,
-    val items: List<com.youthtech.rhythmify.data.network.dto.ZingGetHubHomeItem>,
+    val items: List<ZingGetHubHomeItem>,
 )
 
 data class ZingGetHubHomeItem(
@@ -47,7 +47,7 @@ data class TopTopic(
     val title: String,
     val link: String,
     val description: String,
-    val playlists: List<com.youthtech.rhythmify.data.network.dto.Playlist>,
+    val playlists: List<Playlist>,
 )
 
 
@@ -60,7 +60,7 @@ data class Topic(
     val title: String,
     val link: String,
     val description: String,
-    val playlists: List<com.youthtech.rhythmify.data.network.dto.Playlist>,
+    val playlists: List<Playlist>,
 )
 
 
