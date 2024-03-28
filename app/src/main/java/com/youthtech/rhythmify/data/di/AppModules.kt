@@ -22,6 +22,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -40,6 +41,7 @@ object AppModules {
     @Singleton
     fun provideOkHttpClient(cookieService: CookieService): OkHttpClient {
         return OkHttpClient.Builder()
+            .callTimeout(1, TimeUnit.MINUTES)
             .addInterceptor(MusicServiceInterceptor(cookieService))
             .build()
     }

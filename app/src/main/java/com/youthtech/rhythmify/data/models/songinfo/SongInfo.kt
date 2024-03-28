@@ -49,7 +49,7 @@ data class SongInfo(
     val artists: List<Artist>,
 
     @Relation(
-        parentColumn = "encodeId",
+        parentColumn = "albumId",
         entityColumn = "id",
         entity = Album::class
     )

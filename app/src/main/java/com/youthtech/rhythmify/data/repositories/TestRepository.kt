@@ -68,7 +68,7 @@ class TestRepository @Inject constructor(
     fun getSongInfo(musicId: String) = networkBoundResource(
         query = {
             Log.d("getSongInfo", "getSongInfo: query lambda")
-            songDAO.getSongById(musicId)
+            songDAO.getDistinctSongById(musicId)
         },
         fetch = {
             Log.d("getSongInfo", "getSongInfo: fetch lambda")

@@ -46,7 +46,7 @@ fun ComposerDTO.toComposerModel(): Composer = Composer(
     alias = alias,
     cover = cover,
     thumbnail = thumbnail,
-    playlistId = playlistId,
+//    playlistId = playlistId,
     totalFollow = totalFollow
 )
 

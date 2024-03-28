@@ -47,7 +47,7 @@ data class ComposerDTO(
     val link: String,
     val spotlight: Boolean,
     val alias: String,
-    val playlistId: String,
+//    val playlistId: String,
     val cover: String,
     val thumbnail: String,
     val totalFollow: Long,
