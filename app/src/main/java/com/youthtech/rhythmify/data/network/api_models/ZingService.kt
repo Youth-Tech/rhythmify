@@ -37,7 +37,7 @@ interface ZingService {
 
     @GET(ApiPath.GET_SECTION_SONG_STATION)
     suspend fun getSectionSongStation(
-        @Query("count") count: Number? = 10,
+        @Query("count") count: Number? = 9,
         @Query("sig") sig: String
     ): Response<ZingGetSectionSongStationResponse>
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/exploreFragment"
+        android:layout_width="wrap_content"
+        android:icon="@drawable/ic_explore"
+        android:layout_height="wrap_content"
+        android:title="Khám phá" />
+    <item
+        android:id="@+id/topicCategoryFragment"
+        android:layout_width="wrap_content"
+        android:icon="@drawable/ic_topic"
+        android:layout_height="wrap_content"
+        android:title="Chủ đề" />
+
+    <item
+        android:id="@+id/leaderBoardFragment"
+        android:layout_width="wrap_content"
+        android:icon="@drawable/ic_leaderboard"
+        android:layout_height="wrap_content"
+        android:title="BXH" />
+</menu>

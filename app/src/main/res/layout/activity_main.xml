@@ -1,46 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.MainActivity">
+    tools:context=".ui.activities.MainActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/main_nav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/main_bottom"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_marginBottom="@dimen/default_height_bottom_nav"
+        />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_bottom"
+        app:menu="@menu/bottom_nav_menu"
+        android:layout_width="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/api"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test api"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/api2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test api"
-        app:layout_constraintTop_toBottomOf="@+id/api" />
-
-    <Button
-        android:id="@+id/api3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test youtube api"
-        app:layout_constraintTop_toBottomOf="@+id/api2" />
-
-    <Button
-        android:id="@+id/dbtest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test room database"
-        app:layout_constraintTop_toBottomOf="@+id/api3" />
+        android:layout_height="@dimen/default_height_bottom_nav"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

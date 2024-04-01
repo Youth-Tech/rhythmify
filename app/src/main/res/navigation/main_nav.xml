@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/exploreFragment">
+
+    <fragment
+        android:id="@+id/topicCategoryFragment"
+        android:name="com.youthtech.rhythmify.ui.fragments.TopicCategoryFragment"
+        android:label="fragment_topic_category"
+        tools:layout="@layout/fragment_topic_category" />
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.youthtech.rhythmify.ui.fragments.ExploreFragment"
+        android:label="fragment_explore"
+        tools:layout="@layout/fragment_explore" />
+    
+    <fragment
+        android:id="@+id/leaderBoardFragment"
+        android:name="com.youthtech.rhythmify.ui.fragments.LeaderBoardFragment"
+        android:label="fragment_leader_board"
+        tools:layout="@layout/fragment_leader_board" />
+</navigation>
