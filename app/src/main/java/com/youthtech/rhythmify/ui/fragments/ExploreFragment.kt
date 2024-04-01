@@ -1,14 +1,14 @@
 package com.youthtech.rhythmify.ui.fragments
 
-import com.youthtech.rhythmify.databinding.FragmentBlankBinding
+import com.youthtech.rhythmify.databinding.FragmentExploreBinding
 import com.youthtech.rhythmify.ui.base.BaseFragment
 
-class BlankFragment : BaseFragment<FragmentBlankBinding>(FragmentBlankBinding::inflate) {
+class ExploreFragment : BaseFragment<FragmentExploreBinding>(FragmentExploreBinding::inflate) {
     override fun init() {
 
     }
 
     override fun addListener() {
-
     }
+
 }

@@ -27,7 +27,7 @@ fun hashHomeRadioSignature(apiPath: String, count: Number? = 10): String {
     )
 }
 
-fun hashHasCountSignature(apiPath: String, count: Number? = 10): String{
+fun hashHasCountSignature(apiPath: String, count: Number? = 9): String{
     return hashHmac512(
         "${apiPath}${hash256("count=${count}ctime=${Commons.currentTime}version=${ZING_VERSION}")}",
         ZING_SECRET_KEY
