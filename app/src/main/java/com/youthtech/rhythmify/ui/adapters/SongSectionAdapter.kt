@@ -1,15 +1,16 @@
 package com.youthtech.rhythmify.ui.adapters
 
 import android.annotation.SuppressLint
-import android.view.View
-import android.view.ViewGroup
 import android.content.Context
-import com.bumptech.glide.Glide
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
-import com.youthtech.rhythmify.data.models.Song
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.youthtech.rhythmify.data.models.Song
 import com.youthtech.rhythmify.databinding.ItemSongBinding
+
 
 class SongSectionAdapter(
     private val context: Context,
@@ -31,16 +32,21 @@ class SongSectionAdapter(
 
     override fun onBindViewHolder(holder: SongSectionViewHolder, position: Int) {
         holder.binding.apply {
+            if (position == 0) {
+                val layoutParams = itemSong.layoutParams as ViewGroup.MarginLayoutParams
+                val scale = itemSong.context.resources.displayMetrics.density
+                val dpAsPixels = (20 * scale + 0.5f).toInt()
+                layoutParams.setMargins(dpAsPixels, 0, dpAsPixels, 0)
+                itemSong.layoutParams = layoutParams
+            }
             tvSongTitle.text = listSong[position].title
             tvSongComposer.text = listSong[position].artistsNames
             Glide.with(context).load(listSong[position].thumbnailM)
-                .diskCacheStrategy(DiskCacheStrategy.ALL).skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(ivSongThumnail)
             itemSong.setOnClickListener {
-                View.OnClickListener {
-                    listSong[position].let {
-                        songSectionHandlerListener.onItemClick(it)
-                    }
+                listSong[position].let {
+                    songSectionHandlerListener.onItemClick(it)
                 }
             }
         }

@@ -6,15 +6,17 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.youthtech.rhythmify.R
+import com.youthtech.rhythmify.data.models.Song
 
 class ListSection : LinearLayout, View.OnClickListener {
     private lateinit var textViewSectionName: TextView
-    private lateinit var icWatchMore: ImageView
+    private lateinit var icWatchMore: Button
     private lateinit var recyclerView: RecyclerView
     private var watchMoreHandler: WatchMoreButtonHandler? = null
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
@@ -35,7 +37,7 @@ class ListSection : LinearLayout, View.OnClickListener {
     }
     fun init(style: TypedArray?) {
         textViewSectionName = findViewById(R.id.tv_sectionName)
-        icWatchMore = findViewById(R.id.iv_watchmore)
+        icWatchMore = findViewById(R.id.btn_watchmore)
         recyclerView = findViewById(R.id.rv_songList)
         icWatchMore.setOnClickListener(this@ListSection)
         if (style == null) return
@@ -64,7 +66,7 @@ class ListSection : LinearLayout, View.OnClickListener {
         requestLayout()
     }
     override fun onClick(v: View) {
-        if(v.id == R.id.iv_watchmore && watchMoreHandler != null){
+        if(v.id == R.id.btn_watchmore && watchMoreHandler != null){
             watchMoreHandler!!.onMoreButtonClick()
         }
     }

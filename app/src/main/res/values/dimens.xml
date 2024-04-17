@@ -2,4 +2,5 @@
 <resources>
     <dimen name="default_height_bottom_nav">80dp</dimen>
     <dimen name="default_border_radius">8dp</dimen>
+    <dimen name="global_padding_horizontal">20dp</dimen>
 </resources>
