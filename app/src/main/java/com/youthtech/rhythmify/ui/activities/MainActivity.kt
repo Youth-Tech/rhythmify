@@ -2,6 +2,8 @@ package com.youthtech.rhythmify.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.youthtech.rhythmify.kotlinplayground.coroutinescontext.TestDispatchers
+import com.youthtech.rhythmify.kotlinplayground.coroutinescontext.TestWithContext
 import com.youthtech.rhythmify.data.apis.ZingService
 import com.youthtech.rhythmify.data.music_service.ApiPath
 import com.youthtech.rhythmify.data.music_service.hashHasIdSignature
@@ -38,5 +40,7 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
+        TestDispatchers.runMyFirstCoroutine()
+        TestWithContext.testMySecondWithContextFunc()
     }
 }
