@@ -10,9 +10,9 @@ data class ZingGetHubHomeResponse(
 data class ZingGetHubHomeData(
     val banners: List<Banner>,
     val featured: Featured,
-    val topTopic: List<TopTopic>,
+    val topTopic: List<Topic>,
     val topic: List<Topic>,
-    val nations: List<Nation>,
+    val nations: List<BaseCategoryItem>,
     val genre: List<GenreDTO>,
     val sectionId: String,
 )
@@ -24,10 +24,10 @@ data class Banner(
 
 data class Featured(
     val title: String,
-    val items: List<ZingGetHubHomeItem>,
+    val items: List<BaseCategoryItem>,
 )
 
-data class ZingGetHubHomeItem(
+data class BaseCategoryItem(
     val encodeId: String,
     val cover: String,
     val thumbnail: String,
@@ -37,19 +37,6 @@ data class ZingGetHubHomeItem(
     val link: String,
     val description: String,
 )
-
-data class TopTopic(
-    val encodeId: String,
-    val cover: String,
-    val thumbnail: String,
-    val thumbnailHasText: String,
-    val thumbnailR: String,
-    val title: String,
-    val link: String,
-    val description: String,
-    val playlists: List<Playlist>,
-)
-
 
 data class Topic(
     val encodeId: String,
@@ -63,17 +50,6 @@ data class Topic(
     val playlists: List<Playlist>,
 )
 
-
-data class Nation(
-    val encodeId: String,
-    val cover: String,
-    val thumbnail: String,
-    val thumbnailHasText: String,
-    val thumbnailR: String,
-    val title: String,
-    val link: String,
-    val description: String,
-)
 
 
 
