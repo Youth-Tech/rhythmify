@@ -1,48 +1,107 @@
 package com.youthtech.rhythmify.ui.fragments
 
-import android.annotation.SuppressLint
 import android.util.Log
-import android.view.LayoutInflater
-import android.widget.LinearLayout
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
-import com.google.android.material.chip.Chip
-import com.youthtech.rhythmify.R
 import com.youthtech.rhythmify.data.models.BannerItem
 import com.youthtech.rhythmify.data.models.Song
-import com.youthtech.rhythmify.data.network.api_models.ZingService
-import com.youthtech.rhythmify.data.network.utils.ApiPath
-import com.youthtech.rhythmify.data.network.utils.hashHomeRadioSignature
+import com.youthtech.rhythmify.data.network.dto.ZingHomeDataItem
+import com.youthtech.rhythmify.data.network.dto.ZingHomeItem
 import com.youthtech.rhythmify.databinding.FragmentExploreBinding
 import com.youthtech.rhythmify.ui.adapters.BannerExploreAdapter
 import com.youthtech.rhythmify.ui.adapters.NewReleaseSongAdapter
 import com.youthtech.rhythmify.ui.adapters.SongSectionAdapter
 import com.youthtech.rhythmify.ui.base.BaseFragment
 import com.youthtech.rhythmify.ui.components.ListSection
-import com.youthtech.rhythmify.utils.networkBoundResource
+import com.youthtech.rhythmify.utils.Resource
+import com.youthtech.rhythmify.viewmodels.HomeViewModel
+import com.youthtech.rhythmify.viewmodels.TestViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import java.util.Date
-import javax.inject.Inject
+
+@AndroidEntryPoint
 
 class ExploreFragment : BaseFragment<FragmentExploreBinding>(FragmentExploreBinding::inflate) {
     private var songSectionAdapter: SongSectionAdapter? = null
     private var exploreBannerAdapter: BannerExploreAdapter? = null
     private var newReleaseSongAdapter: NewReleaseSongAdapter? = null
+    private val testViewModel: TestViewModel by viewModels()
+    private val homeViewModel: HomeViewModel by viewModels()
+//    private lateinit var homeAdapter: HomeAdapter
+
     override fun init() {
         renderSongSection()
         renderBanner()
         renderNewReleaseSong()
+//        homeAdapter = HomeAdapter(arrayListOf())
+//        binding.rvHomeList.adapter = homeAdapter
     }
 
     override fun addListener() {
+        // get home section
+        lifecycleScope.launch(Dispatchers.IO) {
+            homeViewModel.home.collect { data ->
+                withContext(Dispatchers.Main) {
+                    when (data) {
+                        is Resource.Error -> {
+                            Log.e(TAG, "homeViewModel: ${data.err?.message}")
+                        }
 
+                        is Resource.Loading -> {
+                            //handle loading state
+                        }
+
+                        is Resource.Success -> {
+                            Log.d(TAG, data.data?.data?.items.toString())
+                            data.data?.data?.items?.forEachIndexed { index: Int, zingHomeDataItem: ZingHomeDataItem ->
+                                when (zingHomeDataItem.sectionType) {
+                                    "banner" -> {
+                                        // Handle banner items
+                                        zingHomeDataItem.items.forEach { zingItem ->
+                                            when (zingItem) {
+                                                is ZingHomeItem.BannerItem -> {
+                                                    Log.d(TAG, "Banner Item: ${zingItem.banner}, Link: ${zingItem.link}")
+                                                }
+                                                // You can add more item types here if needed
+                                                is ZingHomeItem.NewReleaseItem -> TODO()
+                                                is ZingHomeItem.RecentPlaylistItem -> TODO()
+                                            }
+                                        }
+                                    }
+                                    "recentPlaylist" -> {
+                                        // Handle recent playlist section
+                                        Log.d(TAG, "Recent Playlist: ${zingHomeDataItem.title}")
+                                    }
+                                    "new-release" -> {
+//                                        // Handle new release items (all property)
+//                                        when (val zingItem = zingHomeDataItem.items) {
+//                                            is ZingHomeItem.NewReleaseItem -> {
+//                                                zingItem.all.forEach { newRelease ->
+//                                                    Log.d(TAG, "New Release: $newRelease")
+//                                                }
+//                                            }
+//                                            // You can add more item types here if needed
+//                                        }
+                                    }
+                                    else -> {
+                                        // Handle other sections if needed
+                                        Log.d(TAG, "Other Section: ${zingHomeDataItem.sectionType}")
+                                    }
+                                }
+                            }
+
+//                            homeAdapter.setData(data.data?.data?.items ?: arrayListOf())
+                        }
+                    }
+                }
+            }
+        }
     }
-
 
 
     fun renderSongSection() {
@@ -224,16 +283,20 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(FragmentExploreBind
                 banner = "https://photo-zmp3.zmdcdn.me/banner/4/5/7/b/457b0f448c986b14d33aeccef576ebaa.jpg"
             )
         )
-        exploreBannerAdapter = BannerExploreAdapter(requireContext(), listBanner, object : BannerExploreAdapter.BannerExploreHandler{
-            override fun onItemClick(item: BannerItem) {
-              Log.d(TAG, item.banner);
-            }
-
-        })
-        binding.rvBanner.adapter = exploreBannerAdapter;
+//        exploreBannerAdapter = BannerExploreAdapter(
+//            requireContext(),
+//            listBanner,
+//            object : BannerExploreAdapter.BannerExploreHandler {
+//                override fun onItemClick(item: BannerItem) {
+//                    Log.d(TAG, item.banner);
+//                }
+//
+//            })
+//        binding.rvBanner.adapter = exploreBannerAdapter;
 
     }
-    fun renderNewReleaseSong(){
+
+    fun renderNewReleaseSong() {
         val listSong = ArrayList<Song>();
         listSong.add(
             Song(
@@ -349,7 +412,8 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(FragmentExploreBind
                 }
             })
 
-        binding.rvNewRelease.layoutManager = GridLayoutManager(requireContext(), 3, RecyclerView.HORIZONTAL, false)
+        binding.rvNewRelease.layoutManager =
+            GridLayoutManager(requireContext(), 3, RecyclerView.HORIZONTAL, false)
         binding.rvNewRelease.adapter = newReleaseSongAdapter
     }
 }

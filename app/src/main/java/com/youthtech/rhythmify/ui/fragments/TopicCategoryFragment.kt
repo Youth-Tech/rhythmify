@@ -86,21 +86,21 @@ class TopicCategoryFragment :
                             )
                             binding.featureLabel.text = data.data?.data?.featured?.title ?: ""
 
-                            //set data national list
-//                            nationAdapter.setData(
-//                                data.data?.data?.nations ?: arrayListOf()
-//                            )
+//                            set data national list
+                            nationAdapter.setData(
+                                data.data?.data?.nations ?: arrayListOf()
+                            )
 
                             //set data mood and activity list
                             moodAndActivityAdapter.setData(
                                 data.data?.data?.topic ?: arrayListOf()
                             )
 
-                            Topic::class.java.declaredFields.forEach { field ->
-                                data.data?.data?.topic?.get(0)?.let {
-                                    Log.d(TAG, "addListener: ${field.get(it)}")
-                                }
-                            }
+//                            Topic::class.java.declaredFields.forEach { field ->
+//                                data.data?.data?.topic?.get(0)?.let {
+//                                    Log.d(TAG, "addListener: ${field.get(it)}")
+//                                }
+//                            }
                         }
                     }
                 }

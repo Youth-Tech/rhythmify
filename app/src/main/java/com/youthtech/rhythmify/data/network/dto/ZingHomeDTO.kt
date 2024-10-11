@@ -19,7 +19,7 @@ data class ZingHomeDataItem(
     val title: String?,
     val link: String?,
     val sectionId: String?,
-    val items: Any?,
+    val items: List<ZingHomeItem>, // Use the sealed class
     val itemType: String?,
     val options: Options?,
     val banner: String?,
@@ -29,8 +29,16 @@ data class ZingHomeDataItem(
     val chartType: String?,
 )
 
+
 data class Options(
     val autoSlider: Boolean?,
     val hideArrow: Boolean?,
     val hideTitle: Boolean?,
 )
+sealed class ZingHomeItem {
+    data class BannerItem(val link: String, val banner: String, val title: String, val description: String) : ZingHomeItem()
+    data class RecentPlaylistItem(val playlistId: String, val playlistName: String) : ZingHomeItem()
+    data class NewReleaseItem(val all: List<String>) : ZingHomeItem()
+    // Add more item types as needed
+}
+
