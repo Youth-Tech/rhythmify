@@ -95,12 +95,6 @@ class TopicCategoryFragment :
                             moodAndActivityAdapter.setData(
                                 data.data?.data?.topic ?: arrayListOf()
                             )
-
-                            Topic::class.java.declaredFields.forEach { field ->
-                                data.data?.data?.topic?.get(0)?.let {
-                                    Log.d(TAG, "addListener: ${field.get(it)}")
-                                }
-                            }
                         }
                     }
                 }
